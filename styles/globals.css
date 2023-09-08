@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    @apply border-black;
+  }
+  button,
+  input,
+  input[type="radio"],
+  input[type="text"],
+  input[type="checkbox"],
+  textarea,
+  a {
+    @apply focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-600;
+  }
+}

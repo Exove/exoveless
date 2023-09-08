@@ -1,6 +1,6 @@
 # Basic Starter
 
-Starter kit for building your site with Next.js and Drupal. UI is built with Typescript, Headless UI, Tailwind CSS and InstantSearch.
+Starter kit for building your site with Next.js and Drupal. UI is built with Typescript, Headless UI, Tailwind CSS.
 
 ## Get started
 
@@ -19,11 +19,10 @@ Search is running as SaaS by Algolia.
 
 ## Development tools
 
-Project includes workspace file for VSCode (nextjs.code-workspace).
+Project includes workspace file for VSCode.
 
 Recommended VSCode extensions:
 
 - Prettier - Code formatting
 - Tailwind CSS IntelliSense
-- Headwind
 - ESLint

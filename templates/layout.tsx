@@ -13,7 +13,7 @@ export function Layout({ children, menus }: LayoutProps) {
       <div className="text-black">
         <Header menu={menus} />
         <div className="max-w-screen-md px-6 mx-auto">
-          <main className="container py-10 mx-auto">{children}</main>
+          <main className="container py-10 mx-auto font-sans">{children}</main>
         </div>
       </div>
     </>

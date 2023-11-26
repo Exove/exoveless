@@ -18,7 +18,7 @@ export default function Header({ menu }: HeaderProps) {
 
   return (
     <header>
-      <div className="container flex items-center justify-between py-6 mx-auto">
+      <div className="container flex items-center justify-between py-6 mx-auto font-sans">
         <div className="flex items-center gap-40">
           <Link href="/" passHref className="flex items-center gap-4">
             <span className="hidden text-2xl font-semibold border-2 border-black lg:inline-block">

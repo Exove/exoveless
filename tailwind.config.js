@@ -6,7 +6,11 @@ module.exports = {
     "./templates/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)', 'system-ui'],
+      },
+    },
   },
   darkMode: "class",
   variants: {

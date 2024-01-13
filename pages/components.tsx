@@ -22,6 +22,7 @@ import Range from "components/forms/range";
 import Textarea from "components/forms/textarea";
 import Fieldset from "components/forms/fieldset";
 import ButtonContainer from "components/containers/button-container";
+import Breadcrumbs from "components/breadcrumbs/breadcrumbs";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 
 interface ComponentsProps {
@@ -87,6 +88,30 @@ export default function Components({ mainMenu }: ComponentsProps) {
 <Button type="primary">Primary</Button>
 <Button type="secondary">Secondary button</Button>
 <Button type="outlined">Outlined</Button>
+          `}
+        </CodeBlock>
+      </ContentSection>
+
+      <ContentSection>
+        <Heading level="h2" size="large">
+          Breadcrumbs
+        </Heading>
+        <ButtonContainer>
+          <Breadcrumbs
+            path={[
+              { title: "Products", url: "#" },
+              { title: "Category", url: "#" },
+            ]}
+          />
+        </ButtonContainer>
+        <CodeBlock>
+          {`
+<Breadcrumbs
+  path={[
+    { title: "Products", url: "#" },
+    { title: "Category", url: "#" },
+  ]}
+/>
           `}
         </CodeBlock>
       </ContentSection>

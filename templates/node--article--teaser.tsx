@@ -10,8 +10,6 @@ interface NodeArticleTeaserProps {
 }
 
 export function NodeArticleTeaser({ node, ...props }: NodeArticleTeaserProps) {
-  console.log("Drupal node", node);
-
   return (
     <div {...props}>
       <h2 className="mb-4 text-xl font-bold underline">

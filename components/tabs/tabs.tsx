@@ -1,7 +1,7 @@
 import { Tab } from "@headlessui/react";
 
 interface TabsProps {
-  items: any;
+  items: Array<{ title: string; body: string }>;
 }
 
 export default function Tabs({ items }: TabsProps) {

@@ -40,7 +40,7 @@ export function NodeArticle({ node, ...props }: NodeArticleProps) {
       {node.body?.processed && (
         <div
           dangerouslySetInnerHTML={{ __html: node.body?.processed }}
-          className="mt-6 font-serif text-xl leading-relaxed prose dark:prose-invert"
+          className="mt-6 font-serif text-xl leading-relaxed prose"
         />
       )}
       {node.field_paragraphs.map((paragraph, index) => {

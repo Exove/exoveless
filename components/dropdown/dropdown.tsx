@@ -1,12 +1,12 @@
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import Link from "next/link";
-import { FaChevronDown } from "react-icons/fa";
-import cx from "classix";
+import clsx from "clsx";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 interface DropdownProps {
   label: string;
-  items: any;
+  items: Array<{ title: string; url: string; locale?: string }>;
   directionLeft?: boolean;
 }
 
@@ -18,9 +18,9 @@ export default function Dropdown({
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className="inline-flex items-center w-full px-4 py-2">
+        <Menu.Button className="inline-flex gap-1 items-center w-full px-4 py-2">
           {label}
-          <FaChevronDown className="w-3 h-3 ml-3" aria-hidden="true" />
+          <ChevronDownIcon className="w-6 h-6" />
         </Menu.Button>
       </div>
       <Transition
@@ -33,7 +33,7 @@ export default function Dropdown({
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items
-          className={cx(
+          className={clsx(
             "absolute w-56 mt-2 origin-top-right bg-white divide-y divide-gray-300 rounded-md shadow-lg",
             directionLeft && "right-0"
           )}

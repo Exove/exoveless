@@ -1,5 +1,5 @@
 import Link from "next/link";
-import cx from "classix";
+import clsx from "clsx";
 
 interface ButtonProps {
   type: "primary" | "secondary" | "outlined" | "disabled";
@@ -18,7 +18,7 @@ export default function Button({ type, children, url, onClick }: ButtonProps) {
       onClick={onClick}
     >
       <div
-        className={cx(
+        className={clsx(
           "px-4 py-3 text-center",
           type == "primary" &&
             "bg-blue-500 hover:bg-blue-600 active:bg-blue-700",

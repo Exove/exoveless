@@ -1,17 +1,15 @@
-import classNames from "classnames";
+import clsx from "clsx";
 
 interface HeadingProps {
   level: "h1" | "h2" | "h3" | "h4";
   size?: "xl" | "large" | "medium" | "small";
-  children: any;
-  uppercase?: boolean;
+  children: string;
   zeroMargin?: boolean;
 }
 
 export default function Heading({
   level,
   size,
-  uppercase,
   children,
   zeroMargin,
 }: HeadingProps) {
@@ -19,27 +17,13 @@ export default function Heading({
 
   return (
     <Tag
-      className={classNames(
-        "font-bold",
-        "break-words",
-        {
-          uppercase: uppercase,
-        },
-        {
-          "text-3xl lg:leading-tight lg:text-5xl mb-10": size === "xl",
-        },
-        {
-          "text-2xl lg:text-4xl mb-6": size === "large",
-        },
-        {
-          "text-2xl lg:text-3xl mb-6": size === "medium",
-        },
-        {
-          "text-xl": size === "small",
-        },
-        {
-          "mb-0": zeroMargin,
-        }
+      className={clsx(
+        "font-bold break-words",
+        size === "xl" && "text-3xl lg:leading-tight lg:text-5xl mb-10",
+        size === "large" && "text-2xl lg:text-4xl mb-6",
+        size === "medium" && "text-2xl lg:text-3xl mb-6",
+        size === "small" && "text-xl",
+        zeroMargin && "mb-0"
       )}
     >
       {children}

@@ -3,18 +3,15 @@ import { useRouter } from "next/router";
 export function useLanguageMenu() {
   const { locales, asPath } = useRouter();
 
-  const languages = [];
+  const languages: Array<{ title: string; url: string; locale: string }> = [];
 
   locales?.map((locale) =>
     languages.push({
-      title:
-        locale == "en" ? "English" : locale == "es" ? "Español" : "undefined",
+      title: locale == "en" ? "English" : locale == "es" ? "Español" : null,
       url: asPath,
       locale: locale,
     })
   );
 
-  const mobileLanguages = { title: "Language", sublinks: languages };
-
-  return [languages, mobileLanguages];
+  return [languages];
 }

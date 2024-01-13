@@ -10,18 +10,9 @@ export default function Document() {
           content="https://kriteeripankki.fi/og_placeholder.png"
         /> */}
         {/* <link rel="shortcut icon" href="/favicon.ico" /> */}
-        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap"
-          rel="stylesheet"
-        /> */}
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com" /> */}
       </Head>
-      <body className="text-black bg-stone-300">
+      <body className="text-black ">
         <Main />
         <NextScript />
       </body>

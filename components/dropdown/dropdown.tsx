@@ -1,8 +1,9 @@
 import { Menu, Transition } from "@headlessui/react";
-import { Fragment } from "react";
-import Link from "next/link";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import Button from "components/button/button";
+import Link from "next/link";
+import { Fragment } from "react";
 
 interface DropdownProps {
   label: string;
@@ -18,9 +19,13 @@ export default function Dropdown({
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className="inline-flex gap-1 items-center w-full px-4 py-2">
-          {label}
-          <ChevronDownIcon className="w-6 h-6" />
+        <Menu.Button as="span">
+          <Button type="primary">
+            <div className="flex items-center gap-3">
+              <span>{label}</span>
+              <ChevronDownIcon className="h-6 w-6 stroke-2 transition-transform ui-open:rotate-180" />
+            </div>
+          </Button>
         </Menu.Button>
       </div>
       <Transition
@@ -34,8 +39,8 @@ export default function Dropdown({
       >
         <Menu.Items
           className={clsx(
-            "absolute w-56 mt-2 origin-top-right bg-white divide-y divide-gray-300 rounded-md shadow-lg",
-            directionLeft && "right-0"
+            "absolute z-20 mt-2 w-56 origin-top-right divide-y divide-gray-300 rounded-md bg-white shadow-lg",
+            directionLeft && "right-0",
           )}
         >
           {items.map((item, index) => (
@@ -44,7 +49,7 @@ export default function Dropdown({
                 <Link
                   href={item.url}
                   locale={item.locale}
-                  className="flex items-center w-full px-2 py-2 text-sm rounded-md ui-active:bg-stone-200"
+                  className="flex w-full items-center rounded-md px-2 py-2 text-sm ui-active:bg-stone-200"
                 >
                   {item.title}
                 </Link>

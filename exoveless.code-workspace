@@ -1,8 +1,8 @@
 {
   "folders": [
     {
-      "path": "."
-    }
+      "path": ".",
+    },
   ],
   "settings": {
     "breadcrumbs.enabled": true,
@@ -18,18 +18,21 @@
     "editor.wordWrap": "off",
     "editor.detectIndentation": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "headwind.runOnSave": true
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit",
+      "source.sortMembers": "explicit",
+    },
   },
   "launch": {
     "version": "0.2.0",
     "configurations": [
       {
+        "name": "Next.js: debug client-side",
         "type": "chrome",
         "request": "launch",
-        "name": "Next: Chrome",
         "url": "http://localhost:3000",
-        "webRoot": "${workspaceFolder}"
-      }
-    ]
-  }
+      },
+    ],
+  },
 }

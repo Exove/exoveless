@@ -12,7 +12,7 @@ export default function Document() {
         {/* <link rel="shortcut icon" href="/favicon.ico" /> */}
         {/* <link rel="preconnect" href="https://fonts.googleapis.com" /> */}
       </Head>
-      <body className="text-black ">
+      <body className="text-neutral-950 border-gray-500">
         <Main />
         <NextScript />
       </body>

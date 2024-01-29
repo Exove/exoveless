@@ -1,32 +1,43 @@
-import Link from "next/link";
 import clsx from "clsx";
+import Link from "next/link";
 
 interface ButtonProps {
-  type: "primary" | "secondary" | "outlined" | "disabled";
+  type:
+    | "primary"
+    | "primary-outlined"
+    | "secondary"
+    | "secondary-outlined"
+    | "disabled";
   children: any;
   url?: string;
   onClick?: any;
+  size?: "small" | "medium";
 }
 
-export default function Button({ type, children, url, onClick }: ButtonProps) {
+export default function Button({
+  type,
+  children,
+  url,
+  onClick,
+  size = "medium",
+}: ButtonProps) {
   const Tag = url && type != "disabled" ? Link : "button";
 
   return (
-    <Tag
-      href={url}
-      className="max-w-[250px] break-words font-bold text-white uppercase"
-      onClick={onClick}
-    >
+    <Tag href={url || "#"} onClick={onClick} className="text-white">
       <div
         className={clsx(
-          "px-4 py-3 text-center",
+          "max-w-[250px] break-words rounded-lg px-8 py-4 text-center font-bold tracking-tight",
           type == "primary" &&
-            "bg-blue-500 hover:bg-blue-600 active:bg-blue-700",
+            "bg-purple-600 hover:bg-purple-700 active:bg-purple-800",
           type == "secondary" &&
-            "bg-violet-500 hover:bg-violet-600 active:bg-violet-700",
-          type == "outlined" &&
-            "outline outline-2 outline-offset-[-2px] outline-black text-black",
-          type == "disabled" && "bg-gray-500 cursor-not-allowed"
+            "bg-zinc-600 hover:bg-zinc-700 active:bg-zinc-800",
+          type == "primary-outlined" &&
+            "text-purple-600 outline outline-2 outline-offset-[-2px] outline-purple-600 hover:bg-purple-600 hover:text-white active:bg-purple-800",
+          type == "secondary-outlined" &&
+            "text-zinc-600 outline outline-2 outline-offset-[-2px] outline-zinc-600 hover:bg-zinc-600 hover:text-white active:bg-zinc-800",
+          type == "disabled" && "cursor-not-allowed bg-gray-500",
+          size == "small" && "!px-6 !py-3.5 !text-sm leading-tight",
         )}
       >
         {children}

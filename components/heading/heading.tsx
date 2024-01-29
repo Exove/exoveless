@@ -20,10 +20,10 @@ export default function Heading({
       className={clsx(
         "font-bold break-words",
         size === "xl" && "text-3xl lg:leading-tight lg:text-5xl mb-10",
-        size === "large" && "text-2xl lg:text-4xl mb-6",
-        size === "medium" && "text-2xl lg:text-3xl mb-6",
+        size === "large" && "text-2xl lg:text-3xl mb-6",
+        size === "medium" && "text-xl lg:text-2xl mb-6",
         size === "small" && "text-xl",
-        zeroMargin && "mb-0"
+        zeroMargin && "!mb-0"
       )}
     >
       {children}

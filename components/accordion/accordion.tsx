@@ -1,39 +1,45 @@
-import Heading from "components/heading/heading";
-import PlusMinusIcon from "components/icons/plus-minus-icon";
-import { useId, useState } from "react";
-import AnimateHeight from "react-animate-height";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import * as AccordionPrimitive from "@radix-ui/react-accordion";
+import * as React from "react";
 
-interface AccordionProps {
-  title: string;
-  body: any;
-}
+const Accordion = AccordionPrimitive.Root;
 
-export default function Accordion({ title, body }: AccordionProps) {
-  const [open, setOpen] = useState(false);
-  const id = useId();
+const AccordionItem = React.forwardRef<
+  React.ElementRef<typeof AccordionPrimitive.Item>,
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
+>(({ ...props }, ref) => <AccordionPrimitive.Item ref={ref} {...props} />);
+AccordionItem.displayName = "AccordionItem";
 
-  return (
-    <div>
-      <button
-        aria-expanded={open}
-        aria-controls={id}
-        onClick={() => setOpen(open ? false : true)}
-        className="flex items-center justify-between w-full p-5 mb-3 font-medium text-left border-2 hover:bg-stone-200"
-      >
-        <Heading level="h3" size="small">
-          {title}
-        </Heading>
-        <div className="w-6 h-6">
-          <PlusMinusIcon
-            verticalClassName={open && "rotate-90"}
-            horizontalClassName={open && "rotate-180"}
-          />
-        </div>
-      </button>
+const AccordionTrigger = React.forwardRef<
+  React.ElementRef<typeof AccordionPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
+>(({ children, ...props }, ref) => (
+  <AccordionPrimitive.Header className="flex">
+    <AccordionPrimitive.Trigger
+      ref={ref}
+      className="mt-2 flex w-96 flex-1 items-center justify-between gap-3 border-b border-purple-600 px-8 py-6 text-left text-base font-bold leading-tight text-neutral-950 transition-transform hover:underline [&[data-state=open]>svg]:rotate-180 [&[data-state=open]]:border-b-0 [&[data-state=open]]:bg-gray-100"
+      {...props}
+    >
+      {children}
+      <ChevronDownIcon className="h-6 w-6 shrink-0 stroke-2 text-purple-600 transition-transform duration-200" />
+    </AccordionPrimitive.Trigger>
+  </AccordionPrimitive.Header>
+));
+AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
 
-      <AnimateHeight id={id} duration={150} height={open ? "auto" : 0}>
-        <div className="px-5 pt-3 pb-8">{body}</div>
-      </AnimateHeight>
-    </div>
-  );
-}
+const AccordionContent = React.forwardRef<
+  React.ElementRef<typeof AccordionPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
+>(({ children, ...props }, ref) => (
+  <AccordionPrimitive.Content
+    ref={ref}
+    className="overflow-hidden px-8 transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+    {...props}
+  >
+    <div className="py-8">{children}</div>
+  </AccordionPrimitive.Content>
+));
+
+AccordionContent.displayName = AccordionPrimitive.Content.displayName;
+
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger };

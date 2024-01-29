@@ -1,28 +1,27 @@
-import React, { useState } from "react";
-import Head from "next/head";
-import { GetStaticPropsResult } from "next";
-import { Layout } from "templates/layout";
 import { drupal } from "lib/drupal";
+import { GetStaticPropsResult } from "next";
+import Head from "next/head";
+import { useState } from "react";
 import { CopyBlock, github } from "react-code-blocks";
+import { Layout } from "templates/layout";
 
-import Button from "components/button/button";
-import Heading from "components/heading/heading";
-import Select from "components/forms/select";
-import Dropdown from "components/dropdown/dropdown";
-import Notification from "components/notification/notification";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import ContentSection from "components/containers/content-section";
-import Accordion from "components/accordion/accordion";
-import Tabs from "components/tabs/tabs";
-import Modal from "components/modal/modal";
-import MobileMenu from "components/mobile-menu/mobile-menu";
 import Checkbox from "components/forms/checkbox";
+import Fieldset from "components/forms/fieldset";
 import Input from "components/forms/input";
 import Radio from "components/forms/radio";
 import Range from "components/forms/range";
+import Select from "components/forms/select";
 import Textarea from "components/forms/textarea";
-import Fieldset from "components/forms/fieldset";
-import ButtonContainer from "components/containers/button-container";
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
+import Heading from "components/heading/heading";
+import Notification from "components/notification/notification";
+import Tabs from "components/tabs/tabs";
+import AccordionExample from "./examples/accordion-example";
+import ButtonExample from "./examples/button-example";
+import DropdownExample from "./examples/dropdown-example";
+import HeadingExample from "./examples/heading-example";
+import MobileMenuExample from "./examples/mobile-menu-example";
 
 interface ComponentsProps {
   mainMenu?: any;
@@ -36,196 +35,22 @@ export default function Components({ mainMenu }: ComponentsProps) {
   const [selectValue, setSelectValue] = useState("ca");
   const [textareaValue, setTextareaValue] = useState("");
 
-  const accordionItems = [
-    {
-      title: "Accordion title number one",
-      body: "With consumer awareness articles and documentaries frequently picking up on this topic, it's likely the case that retailers find it harder to get away with the more obvious ploys. We are becoming ever more savvy consumers and there's probably not a great deal that gets past us.",
-    },
-    {
-      title: "Accordion title number two",
-      body: "With consumer awareness articles and documentaries frequently picking up on this topic, it's likely the case that retailers find it harder to get away with the more obvious ploys. We are becoming ever more savvy consumers and there's probably not a great deal that gets past us. But here's a few retail tricks to keep in mind when you are rushing around the weekly supermarket stock-up.With consumer awareness articles and documentaries frequently picking up on this topic, it's likely the case that retailers find it harder to get away with the more obvious ploys.",
-    },
-    {
-      title: "Accordion title number three",
-      body: "With consumer awareness articles and documentaries frequently picking up on this topic, it's likely the case that retailers find it harder to get away with the more obvious ploys. We are becoming ever more savvy consumers and there's probably not a great deal that gets past us. But here's a few retail tricks to keep in mind when you are rushing around the weekly supermarket stock-up.",
-    },
-  ];
-
   return (
     <Layout menus={mainMenu.items}>
       <Head>
-        <title>Components</title>
-        <meta name="description" content="A Next.js site powered by Drupal." />
+        <title>Exoveless | Components</title>
+        <meta name="description" content="Library of reusable components." />
       </Head>
 
-      <ContentSection>
-        <Heading level="h2" size="large">
-          Accordion
-        </Heading>
-        {accordionItems.map((item, index) => (
-          <Accordion key={index} title={item.title} body={item.body} />
-        ))}
-        <CodeBlock>
-          {`
-<Accordion title="Title text" body="Body text" />
-          `}
-        </CodeBlock>
-      </ContentSection>
+      <AccordionExample />
 
-      <ContentSection>
-        <Heading level="h2" size="large">
-          Button
-        </Heading>
-        <ButtonContainer>
-          <Button type="primary">Primary</Button>
-          <Button type="secondary">Secondary button</Button>
-          <Button type="outlined">Outlined</Button>
-          <Button type="disabled">Disabled</Button>
-        </ButtonContainer>
-        <CodeBlock>
-          {`
-<Button type="primary">Primary</Button>
-<Button type="secondary">Secondary button</Button>
-<Button type="outlined">Outlined</Button>
-          `}
-        </CodeBlock>
-      </ContentSection>
+      <ButtonExample />
 
-      <ContentSection>
-        <Heading level="h2" size="large">
-          Dropdown menu
-        </Heading>
-        <Dropdown
-          label="Language"
-          items={[
-            { title: "Finnish", url: "#" },
-            { title: "English", url: "#" },
-            { title: "Swedish", url: "#" },
-          ]}
-        />
-        <CodeBlock>
-          {`
-<Dropdown
-  label="Language"
-  items={[
-    { title: "Finnish", url: "#" },
-    { title: "English", url: "#" },
-    { title: "Swedish", url: "#" },
-  ]}
-/>
-          `}
-        </CodeBlock>
-      </ContentSection>
+      <DropdownExample />
 
-      <ContentSection>
-        <Heading level="h2" size="large">
-          Heading
-        </Heading>
-        <Heading level="h1" size="xl">
-          Heading XL
-        </Heading>
-        <Heading level="h2" size="large">
-          Heading Large
-        </Heading>
-        <Heading level="h3" size="medium">
-          Heading Medium
-        </Heading>
-        <Heading level="h4" size="small">
-          Heading Small
-        </Heading>
-        <CodeBlock>
-          {`
-<Heading level="h1" size="xl">
-  Heading XL
-</Heading>
-<Heading level="h2" size="large">
-  Heading Large
-</Heading>
-<Heading level="h3" size="medium">
-  Heading Medium
-</Heading>
-<Heading level="h4" size="small">
-  Heading Small
-</Heading>
-          `}
-        </CodeBlock>
-      </ContentSection>
+      <HeadingExample />
 
-      <ContentSection>
-        <Heading level="h2" size="large">
-          Mobile menu
-        </Heading>
-        <MobileMenu
-          items={[
-            {
-              title: "Products",
-              url: "#",
-              sublinks: [
-                { title: "Link one", url: "#" },
-                { title: "Link two", url: "#" },
-                { title: "Link three", url: "#" },
-              ],
-            },
-            {
-              title: "Company",
-              url: "#",
-              sublinks: [
-                { title: "Link one", url: "#" },
-                { title: "Link two", url: "#" },
-                { title: "Link three", url: "#" },
-              ],
-            },
-            {
-              title: "Contact",
-              url: "#",
-              sublinks: [
-                { title: "Link one", url: "#" },
-                { title: "Link two", url: "#" },
-                { title: "Link three", url: "#" },
-              ],
-            },
-            { title: "Blog", url: "#" },
-            { title: "Login", url: "#" },
-          ]}
-        />
-        <CodeBlock>
-          {`
-<MobileMenu
-  items={[
-    {
-      title: "Products",
-      url: "#",
-      sublinks: [
-        { title: "Link one", url: "#" },
-        { title: "Link two", url: "#" },
-        { title: "Link three", url: "#" },
-      ],
-    },
-    { title: "Blog", url: "#" },
-    { title: "Login", url: "#" },
-  ]}
-/>
-          `}
-        </CodeBlock>
-      </ContentSection>
-
-      <ContentSection>
-        <Heading level="h2" size="large">
-          Modal
-        </Heading>
-        <Modal title="Title" buttonText="Close">
-          Your payment has been successfully submitted. We’ve sent you an email
-          with all of the details of your order.
-        </Modal>
-        <CodeBlock>
-          {`
-<Modal title="Title" buttonText="Close">
-  Your payment has been successfully submitted. We’ve sent you an email
-  with all of the details of your order.
-</Modal>
-          `}
-        </CodeBlock>
-      </ContentSection>
+      <MobileMenuExample />
 
       <ContentSection>
         <Heading level="h2" size="large">
@@ -262,7 +87,6 @@ export default function Components({ mainMenu }: ComponentsProps) {
           `}
         </CodeBlock>
       </ContentSection>
-
       <ContentSection>
         <Heading level="h2" size="large">
           Tabs
@@ -304,7 +128,6 @@ export default function Components({ mainMenu }: ComponentsProps) {
           `}
         </CodeBlock>
       </ContentSection>
-
       <ContentSection>
         <Heading level="h2" size="large">
           Checkbox
@@ -330,7 +153,6 @@ const [checkboxValue, setCheckboxValue] = useState(false);
           `}
         </CodeBlock>
       </ContentSection>
-
       <ContentSection>
         <Heading level="h2" size="large">
           Input
@@ -358,7 +180,6 @@ const [inputValue, setInputValue] = useState("");
           `}
         </CodeBlock>
       </ContentSection>
-
       <ContentSection>
         <Heading level="h2" size="large">
           Radio
@@ -412,7 +233,6 @@ const [radioValue, setRadioValue] = useState("two");
           `}
         </CodeBlock>
       </ContentSection>
-
       <ContentSection>
         <Heading level="h2" size="large">
           Range
@@ -436,7 +256,6 @@ const [rangeValue, setRangeValue] = useState(20);
           `}
         </CodeBlock>
       </ContentSection>
-
       <ContentSection>
         <Heading level="h2" size="large">
           Select
@@ -474,7 +293,6 @@ const [selectValue, setSelectValue] = useState("ca");
           `}
         </CodeBlock>
       </ContentSection>
-
       <ContentSection>
         <Heading level="h2" size="large">
           Textarea
@@ -515,17 +333,17 @@ function CodeBlock({ children }) {
     <div className="mt-5 overflow-hidden">
       <button onClick={() => setOpen(!open)}>
         {open ? (
-          <div className="flex gap-1 items-center text-sm">
-            Code <ChevronUpIcon className="w-5 h-5" />
+          <div className="flex items-center gap-1 text-sm">
+            Code <ChevronUpIcon className="h-5 w-5" />
           </div>
         ) : (
-          <div className="flex gap-1 items-center text-sm">
-            Code <ChevronDownIcon className="w-5 h-5" />
+          <div className="flex items-center gap-1 text-sm">
+            Code <ChevronDownIcon className="h-5 w-5" />
           </div>
         )}
       </button>
       {open && (
-        <code className="block mt-2 border p-3 border-gray-300">
+        <code className="mt-2 block border border-gray-300 p-3">
           <CopyBlock text={children} language="jsx" theme={github} />
         </code>
       )}
@@ -534,7 +352,7 @@ function CodeBlock({ children }) {
 }
 
 export async function getStaticProps(
-  context
+  context,
 ): Promise<GetStaticPropsResult<ComponentsProps>> {
   const mainMenu = await drupal.getMenu("main", {
     locale: "en",

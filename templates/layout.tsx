@@ -10,11 +10,9 @@ export function Layout({ children, menus }: LayoutProps) {
   return (
     <>
       <PreviewAlert />
-      <div className="text-black">
-        <Header menu={menus} />
-        <div className="max-w-screen-md px-6 mx-auto">
-          <main className="container py-10 mx-auto">{children}</main>
-        </div>
+      <Header menu={menus} />
+      <div className="max-w-screen-lg px-4 lg:px-0 mx-auto">
+        <main className="container py-10 mx-auto">{children}</main>
       </div>
     </>
   );

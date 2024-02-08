@@ -1,43 +1,59 @@
+"use client";
+
 import { Dialog, Transition } from "@headlessui/react";
 import Button from "components/button/button";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 interface ModalProps {
-  title?: string;
   children: any;
-  buttonText?: string;
-  button?: any;
+  id: string;
+  title?: string;
+  closeButtonText?: string;
+  openButtonText?: any;
+  height?: string;
+  open?: boolean;
+  saveStateToLocalStorage?: boolean; // Use only if open is set to true
 }
 
 export default function Modal({
   title,
   children,
-  buttonText,
-  button,
+  closeButtonText = "Close",
+  openButtonText = "Open",
+  height = "auto",
+  open = false,
+  saveStateToLocalStorage = false,
+  id,
 }: ModalProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  function closeModal() {
+  function onClose() {
     setIsOpen(false);
+    saveStateToLocalStorage &&
+      window.localStorage.setItem("modal-" + id, "false");
   }
 
-  function openModal() {
-    setIsOpen(true);
-  }
+  // Wait till page is loaded for the modal to open
+  useEffect(() => {
+    open ? setIsOpen(open) : setIsOpen(false);
+  }, [open]);
+
   return (
     <>
-      <div>
-        {button ? (
-          button
-        ) : (
-          <Button type="primary" onClick={openModal}>
-            Open dialog
+      {openButtonText && (
+        <div>
+          <Button type="primary" onClick={() => setIsOpen(true)}>
+            {openButtonText}
           </Button>
-        )}
-      </div>
+        </div>
+      )}
 
-      <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+      <Transition
+        appear
+        show={isOpen && window.localStorage.getItem("modal-" + id) !== "false"}
+        as={Fragment}
+      >
+        <Dialog as="div" className="relative z-10" onClose={onClose}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -51,7 +67,7 @@ export default function Modal({
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex items-center justify-center min-h-full p-4 text-center">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -61,18 +77,20 @@ export default function Modal({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="relative w-full max-w-md p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                <Dialog.Panel className="relative w-full max-w-md transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6"
                   >
                     {title}
                   </Dialog.Title>
-                  <div className="mt-2">{children}</div>
+                  <div className="mt-2" style={{ height: height }}>
+                    {children}
+                  </div>
 
-                  <div className="mt-4">
-                    <Button type="primary" onClick={closeModal}>
-                      {buttonText}
+                  <div className="mt-4 flex justify-center">
+                    <Button type="primary" onClick={onClose}>
+                      {closeButtonText}
                     </Button>
                   </div>
                 </Dialog.Panel>

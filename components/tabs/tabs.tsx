@@ -1,29 +1,42 @@
-import { Tab } from "@headlessui/react";
+import * as TabsPrimitive from "@radix-ui/react-tabs";
+import * as React from "react";
 
-interface TabsProps {
-  items: Array<{ title: string; body: string }>;
-}
+const Tabs = TabsPrimitive.Root;
 
-export default function Tabs({ items }: TabsProps) {
-  return (
-    <Tab.Group>
-      <Tab.List className="flex">
-        {items.map((item, index) => (
-          <Tab
-            key={index}
-            className="w-full p-2 font-medium ui-selected:bg-white"
-          >
-            {item.title}
-          </Tab>
-        ))}
-      </Tab.List>
-      <Tab.Panels>
-        {items.map((item, index) => (
-          <Tab.Panel key={index} className="p-5 bg-white">
-            <ul>{item.body}</ul>
-          </Tab.Panel>
-        ))}
-      </Tab.Panels>
-    </Tab.Group>
-  );
-}
+const TabsList = React.forwardRef<
+  React.ElementRef<typeof TabsPrimitive.List>,
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
+>(({ className, ...props }, ref) => (
+  <TabsPrimitive.List
+    ref={ref}
+    className="border-b border-gray-400"
+    {...props}
+  />
+));
+TabsList.displayName = TabsPrimitive.List.displayName;
+
+const TabsTrigger = React.forwardRef<
+  React.ElementRef<typeof TabsPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
+>(({ className, ...props }, ref) => (
+  <TabsPrimitive.Trigger
+    ref={ref}
+    className="relative top-[1px] inline-flex items-center justify-center whitespace-nowrap border-b-2 border-transparent px-8 py-4 font-bold text-gray-400 transition-all disabled:pointer-events-none disabled:opacity-50 data-[state=active]:border-purple-600 data-[state=active]:text-purple-600"
+    {...props}
+  />
+));
+TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
+
+const TabsContent = React.forwardRef<
+  React.ElementRef<typeof TabsPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
+>(({ className, ...props }, ref) => (
+  <TabsPrimitive.Content
+    ref={ref}
+    className="mt-10 ring-offset-white"
+    {...props}
+  />
+));
+TabsContent.displayName = TabsPrimitive.Content.displayName;
+
+export { Tabs, TabsContent, TabsList, TabsTrigger };

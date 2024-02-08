@@ -1,8 +1,8 @@
 import { Transition } from "@headlessui/react";
-import { Fragment, useEffect, useId, useState } from "react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { Fragment, useEffect, useId, useState } from "react";
 import MobileSubmenu from "./mobile-submenu";
-import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/outline";
 
 interface MobileMenuProps {
   items: Array<{
@@ -17,17 +17,15 @@ export default function MobileMenu({ items }: MobileMenuProps) {
   const id = useId();
 
   useEffect(() => {
-    // Prevent scrolling when mobile menu is open.
-    menuOpen
-      ? document.body.classList.add("fixed", "w-full")
-      : document.body.classList.remove("fixed", "w-full");
+    const html = document.documentElement;
+    html.classList.toggle("overflow-hidden", menuOpen);
   }, [menuOpen]);
 
   return (
     <div>
-      <div className={menuOpen ? "fixed z-20 top-3 right-3" : undefined}>
+      <div className={menuOpen ? "fixed right-3 top-3 z-20" : undefined}>
         <button
-          className="inline-flex items-center px-3 py-2 text-white border"
+          className="inline-flex items-center border px-3 py-2 text-white"
           onClick={() => {
             menuOpen ? setMenuOpen(false) : setMenuOpen(true);
           }}
@@ -52,15 +50,15 @@ export default function MobileMenu({ items }: MobileMenuProps) {
       <Transition as={Fragment} show={menuOpen}>
         <nav
           id={id}
-          className="fixed top-0 left-0 z-10 w-screen h-screen bg-white"
+          className="fixed left-0 top-0 z-10 h-screen w-screen bg-white"
         >
-          <ul className="w-full px-4 pt-20 overflow-scroll break-words">
+          <ul className="w-full overflow-scroll break-words px-4 pt-20">
             {items.map((item, index: number) => (
               <li key={index}>
                 {!item.sublinks && (
                   <Link
                     href={item.url}
-                    className="block py-3 text-lg border-t border-gray-300"
+                    className="block border-t border-gray-300 py-3 text-lg"
                   >
                     {item.title}
                   </Link>

@@ -15,13 +15,14 @@ import Range from "components/forms/range";
 import Select from "components/forms/select";
 import Textarea from "components/forms/textarea";
 import Heading from "components/heading/heading";
-import Notification from "components/notification/notification";
-import Tabs from "components/tabs/tabs";
 import AccordionExample from "./examples/accordion-example";
 import ButtonExample from "./examples/button-example";
 import DropdownExample from "./examples/dropdown-example";
 import HeadingExample from "./examples/heading-example";
 import MobileMenuExample from "./examples/mobile-menu-example";
+import ModalExample from "./examples/modal-example";
+import NotificationExample from "./examples/notification-example";
+import TabsExample from "./examples/tabs-example";
 
 interface ComponentsProps {
   mainMenu?: any;
@@ -52,82 +53,11 @@ export default function Components({ mainMenu }: ComponentsProps) {
 
       <MobileMenuExample />
 
-      <ContentSection>
-        <Heading level="h2" size="large">
-          Notification
-        </Heading>
-        <Notification message="Change a few things up and try submitting again." />
-        <Notification
-          type="success"
-          message="Success: Change a few things up and try submitting again."
-        />
-        <Notification
-          type="error"
-          message="Error: Change a few things up and try submitting again."
-        />
-        <Notification
-          type="warning"
-          message="Warning: Change a few things up and try submitting again."
-        />
-        <CodeBlock>
-          {`
-<Notification message="Change a few things..." />
-<Notification
-  type="success"
-  message="Success: Change a few things..."
-/>
-<Notification
-  type="error"
-  message="Error: Change a few things..."
-/>
-<Notification
-  type="warning"
-  message="Warning: Change a few things..."
-/>
-          `}
-        </CodeBlock>
-      </ContentSection>
-      <ContentSection>
-        <Heading level="h2" size="large">
-          Tabs
-        </Heading>
-        <Tabs
-          items={[
-            {
-              title: "Tabs title number one",
-              body: "With consumer awareness articles and documentaries frequently picking up on this topic, it's likely the case that retailers find it harder to get away with the more obvious ploys. We are becoming ever more savvy consumers and there's probably not a great deal that gets past us. But here's a few retail tricks to keep in mind when you are rushing around the weekly supermarket stock-up.",
-            },
-            {
-              title: "Tabs title number two",
-              body: "2 With consumer awareness articles and documentaries frequently picking up on this topic, it's likely the case that retailers find it harder to get away with the more obvious ploys. We are becoming ever more savvy consumers and there's probably not a great deal that gets past us. But here's a few retail tricks to keep in mind when you are rushing around the weekly supermarket stock-up.",
-            },
-            {
-              title: "Tabs title number three longer title testing",
-              body: "3 With consumer awareness articles and documentaries frequently picking up on this topic, it's likely the case that retailers find it harder to get away with the more obvious ploys. We are becoming ever more savvy consumers and there's probably not a great deal that gets past us. But here's a few retail tricks to keep in mind when you are rushing around the weekly supermarket stock-up.",
-            },
-          ]}
-        />
-        <CodeBlock>
-          {`
-<Tabs
-  items={[
-    {
-      title: "Tabs title number one",
-      body: "With consumer awareness articles...",
-    },
-    {
-      title: "Tabs title number two",
-      body: "2 With consumer awareness articles...",
-    },
-    {
-      title: "Tabs title number three longer title testing",
-      body: "3 With consumer awareness articles...",
-    },
-  ]}
-/>
-          `}
-        </CodeBlock>
-      </ContentSection>
+      <ModalExample />
+
+      <NotificationExample />
+
+      <TabsExample />
       <ContentSection>
         <Heading level="h2" size="large">
           Checkbox

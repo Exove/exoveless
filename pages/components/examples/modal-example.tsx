@@ -1,39 +1,31 @@
 import ContentSection from "components/containers/content-section";
-import Dropdown from "components/dropdown/dropdown";
 import Heading from "components/heading/heading";
+import Modal from "components/modal/modal";
 import CodeBlock from "pages/components/code-block";
 
-export default function DropdownExample() {
+export default function ModalExample() {
   return (
     <ContentSection>
       <div className="mb-20 border-b pb-4">
         <Heading level="h2" size="large" zeroMargin>
-          Dropdown Menu
+          Modal
         </Heading>
       </div>
       <div className="gap-5 lg:flex">
         <div className="lg:w-72"></div>
         <div className="flex-1">
-          <Dropdown
-            label="Dropdown menu"
-            items={[
-              { title: "Finnish", url: "#" },
-              { title: "English", url: "#" },
-              { title: "Swedish", url: "#" },
-            ]}
-          />
+          <Modal title="Title" id="example" openButtonText="Open">
+            Your payment has been successfully submitted. We’ve sent you an
+            email with all of the details of your order.
+          </Modal>
         </div>
       </div>
       <CodeBlock>
         {`
-<Dropdown
-  label="Language"
-  items={[
-    { title: "Finnish", url: "/" },
-    { title: "English", url: "/en" },
-    { title: "Swedish", url: "/sv" },
-  ]}
-/>
+<Modal title="Title">
+  Your payment has been successfully submitted. We’ve sent you an email
+  with all of the details of your order.
+</Modal>
           `}
       </CodeBlock>
     </ContentSection>

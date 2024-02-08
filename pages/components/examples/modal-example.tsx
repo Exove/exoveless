@@ -1,3 +1,4 @@
+import Button from "components/button/button";
 import ContentSection from "components/containers/content-section";
 import Heading from "components/heading/heading";
 import Modal from "components/modal/modal";
@@ -14,7 +15,15 @@ export default function ModalExample() {
       <div className="gap-5 lg:flex">
         <div className="lg:w-72"></div>
         <div className="flex-1">
-          <Modal title="Title" id="example" openButtonText="Open">
+          <Modal
+            title="Title"
+            id="example"
+            openButton={
+              <Button type="primary" tag="div">
+                Open
+              </Button>
+            }
+          >
             Your payment has been successfully submitted. We’ve sent you an
             email with all of the details of your order.
           </Modal>
@@ -22,9 +31,17 @@ export default function ModalExample() {
       </div>
       <CodeBlock>
         {`
-<Modal title="Title">
-  Your payment has been successfully submitted. We’ve sent you an email
-  with all of the details of your order.
+<Modal
+  title="Title"
+  id="example"
+  openButton={
+    <Button type="primary" tag="div">
+      Open
+    </Button>
+  }
+>
+  Your payment has been successfully submitted. We’ve sent you an
+  email with all of the details of your order.
 </Modal>
           `}
       </CodeBlock>

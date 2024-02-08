@@ -7,10 +7,10 @@ export function useLanguageMenu() {
 
   locales?.map((locale) =>
     languages.push({
-      title: locale == "en" ? "English" : locale == "es" ? "Español" : null,
+      title: locale == "en" ? "English" : "Español",
       url: asPath,
       locale: locale,
-    })
+    }),
   );
 
   return [languages];

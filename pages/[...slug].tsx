@@ -1,13 +1,12 @@
-import * as React from "react";
-import { GetStaticPathsResult, GetStaticPropsResult } from "next";
-import Head from "next/head";
-import { DrupalNode } from "next-drupal";
 import { DrupalJsonApiParams } from "drupal-jsonapi-params";
+import { GetStaticPathsResult, GetStaticPropsResult } from "next";
+import { DrupalNode } from "next-drupal";
+import Head from "next/head";
 
 import { drupal } from "lib/drupal";
+import { Layout } from "templates/layout";
 import { NodeArticle } from "templates/node--article";
 import { NodeBasicPage } from "templates/node--basic-page";
-import { Layout } from "templates/layout";
 
 const RESOURCE_TYPES = ["node--page", "node--article"];
 
@@ -38,7 +37,7 @@ export async function getStaticPaths(context): Promise<GetStaticPathsResult> {
 }
 
 export async function getStaticProps(
-  context
+  context,
 ): Promise<GetStaticPropsResult<NodePageProps>> {
   const path = await drupal.translatePathFromContext(context);
 
@@ -48,36 +47,38 @@ export async function getStaticProps(
     };
   }
 
-  const type = path.jsonapi.resourceName;
+  const type = path.jsonapi?.resourceName;
 
   const resource = await drupal.getResourceFromContext<DrupalNode>(
     path,
     context,
-    type === "node--article" && {
-      params: new DrupalJsonApiParams()
-        .addInclude([
-          "field_media_image.field_media_image",
-          "uid.user_picture",
-          "field_paragraphs",
-        ])
-        .addFields("node--article", [
-          "title",
-          "path",
-          "field_media_image",
-          "status",
-          "created",
-          "body",
-          "field_paragraphs",
-        ])
-        .addFields("media--image", ["field_media_image"])
-        .addFields("file--file", ["uri", "resourceIdObjMeta"])
-        .addSort("created", "DESC")
-        .getQueryObject(),
-    }
+    type === "node--article"
+      ? {
+          params: new DrupalJsonApiParams()
+            .addInclude([
+              "field_media_image.field_media_image",
+              "uid.user_picture",
+              "field_paragraphs",
+            ])
+            .addFields("node--article", [
+              "title",
+              "path",
+              "field_media_image",
+              "status",
+              "created",
+              "body",
+              "field_paragraphs",
+            ])
+            .addFields("media--image", ["field_media_image"])
+            .addFields("file--file", ["uri", "resourceIdObjMeta"])
+            .addSort("created", "DESC")
+            .getQueryObject(),
+        }
+      : undefined,
   );
 
   if (!resource) {
-    throw new Error(`Failed to fetch resource: ${path.jsonapi.individual}`);
+    throw new Error(`Failed to fetch resource: ${path.jsonapi?.individual}`);
   }
 
   // If we're not in preview mode and the resource is not published,

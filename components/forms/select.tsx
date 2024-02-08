@@ -22,7 +22,7 @@ export default function Select({
 
   return (
     <div>
-      <Label id={id}>{label}</Label>
+      {label && <Label id={id}>{label}</Label>}
       <select
         id={id}
         onChange={onChange}

@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import Link from "next/link";
 
 interface ButtonProps {
   type:
@@ -12,6 +11,7 @@ interface ButtonProps {
   url?: string;
   onClick?: any;
   size?: "small" | "medium";
+  tag?: "button" | "a" | "div";
 }
 
 export default function Button({
@@ -20,8 +20,9 @@ export default function Button({
   url,
   onClick,
   size = "medium",
+  tag = "button",
 }: ButtonProps) {
-  const Tag = url && type != "disabled" ? Link : "button";
+  const Tag = tag;
 
   return (
     <Tag href={url || "#"} onClick={onClick} className="text-white">

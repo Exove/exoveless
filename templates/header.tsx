@@ -9,7 +9,7 @@ export default function Header({ menu }: HeaderProps) {
   const [languages] = useLanguageMenu();
 
   // Create the mobile menu.
-  const mobileMenu = [];
+  const mobileMenu: { title: string; url: string }[] = [];
   menu?.map((item) => mobileMenu.push({ title: item.title, url: item.url }));
 
   return (

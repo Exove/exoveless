@@ -9,7 +9,7 @@ interface ModalProps {
   id: string;
   title?: string;
   closeButtonText?: string;
-  openButtonText?: any;
+  openButton?: any;
   height?: string;
   open?: boolean;
   saveStateToLocalStorage?: boolean; // Use only if open is set to true
@@ -19,7 +19,7 @@ export default function Modal({
   title,
   children,
   closeButtonText = "Close",
-  openButtonText = "Open",
+  openButton = "Open",
   height = "auto",
   open = false,
   saveStateToLocalStorage = false,
@@ -40,11 +40,9 @@ export default function Modal({
 
   return (
     <>
-      {openButtonText && (
+      {openButton && (
         <div>
-          <Button type="primary" onClick={() => setIsOpen(true)}>
-            {openButtonText}
-          </Button>
+          <button onClick={() => setIsOpen(true)}>{openButton}</button>
         </div>
       )}
 

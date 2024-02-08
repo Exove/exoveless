@@ -18,10 +18,7 @@ export default function Breadcrumbs({ path = [] }: BreadcrumbsProps) {
 
   return (
     <nav aria-label="breadcrumbs">
-      <ol
-        id="breadcrumbsContainer"
-        className="flex gap-2 uppercase text-vdGrey-700"
-      >
+      <ol id="breadcrumbsContainer" className="flex gap-2 text-vdGrey-700">
         <li>
           <Link href={"/"}>Home</Link>
         </li>

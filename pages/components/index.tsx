@@ -16,6 +16,7 @@ import Select from "components/forms/select";
 import Textarea from "components/forms/textarea";
 import Heading from "components/heading/heading";
 import AccordionExample from "./examples/accordion-example";
+import BreadcrumbsExample from "./examples/breadcrumbs-example";
 import ButtonExample from "./examples/button-example";
 import DropdownExample from "./examples/dropdown-example";
 import HeadingExample from "./examples/heading-example";
@@ -44,6 +45,8 @@ export default function Components({ mainMenu }: ComponentsProps) {
       </Head>
 
       <AccordionExample />
+
+      <BreadcrumbsExample />
 
       <ButtonExample />
 

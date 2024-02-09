@@ -28,7 +28,7 @@ export default function Button({
     <Tag href={url || "#"} onClick={onClick} className="text-white">
       <div
         className={clsx(
-          "max-w-[250px] break-words rounded-lg px-8 py-4 text-center font-bold tracking-tight",
+          "max-w-[270px] break-words rounded-lg px-8 py-4 text-center font-bold",
           type == "primary" &&
             "bg-purple-600 hover:bg-purple-700 active:bg-purple-800",
           type == "secondary" &&

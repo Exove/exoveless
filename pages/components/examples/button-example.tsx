@@ -18,13 +18,13 @@ export default function ButtonExample() {
         <div className="flex-1">
           <div className="mb-10">
             <ButtonContainer>
-              <Button type="primary">Primary Button</Button>
-              <Button type="primary-outlined">Outlined Button</Button>
+              <Button style="primary">Primary Button</Button>
+              <Button style="primary-outlined">Outlined Button</Button>
             </ButtonContainer>
           </div>
           <ButtonContainer>
-            <Button type="secondary">Secondary Button</Button>
-            <Button type="secondary-outlined">
+            <Button style="secondary">Secondary Button</Button>
+            <Button style="secondary-outlined">
               <div className="flex items-center gap-3">
                 <BellAlertIcon className="h-5 w-5 stroke-2" />
                 Outlined with Icon
@@ -38,19 +38,19 @@ export default function ButtonExample() {
         <div className="flex-1">
           <div className="mb-10">
             <ButtonContainer>
-              <Button type="primary" size="small">
+              <Button style="primary" size="small">
                 Primary Button
               </Button>
-              <Button type="primary-outlined" size="small">
+              <Button style="primary-outlined" size="small">
                 Outlined Button
               </Button>
             </ButtonContainer>
           </div>
           <ButtonContainer>
-            <Button type="secondary" size="small">
+            <Button style="secondary" size="small">
               Secondary Button
             </Button>
-            <Button type="secondary-outlined" size="small">
+            <Button style="secondary-outlined" size="small">
               Outlined Button
             </Button>
           </ButtonContainer>
@@ -58,9 +58,9 @@ export default function ButtonExample() {
       </div>
       <CodeBlock>
         {`
-<Button type="primary">Primary</Button>
-<Button type="secondary" size="small">Small button</Button>
-<Button type="secondary-outlined" url="#">Button as link</Button>
+<Button style="primary">Primary</Button>
+<Button style="secondary" size="small">Small button</Button>
+<Button style="secondary-outlined" url="#">Button as link</Button>
           `}
       </CodeBlock>
     </ContentSection>

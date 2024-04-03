@@ -20,7 +20,7 @@ export default function Dropdown({
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button>
-          <Button type="primary" tag="div">
+          <Button style="primary" tag="div">
             <div className="flex items-center gap-3">
               {label}
               <ChevronDownIcon className="h-6 w-6 stroke-2 transition-transform ui-open:rotate-180" />

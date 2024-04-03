@@ -19,7 +19,7 @@ export default function ModalExample() {
             title="Title"
             id="example"
             openButton={
-              <Button type="primary" tag="div">
+              <Button style="primary" tag="div">
                 Open
               </Button>
             }
@@ -35,7 +35,7 @@ export default function ModalExample() {
   title="Title"
   id="example"
   openButton={
-    <Button type="primary" tag="div">
+    <Button style="primary" tag="div">
       Open
     </Button>
   }

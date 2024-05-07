@@ -39,11 +39,9 @@ export default function Modal({
   }, [open]);
 
   return (
-    <>
+    <div>
       {openButton && (
-        <div>
-          <button onClick={() => setIsOpen(true)}>{openButton}</button>
-        </div>
+        <button onClick={() => setIsOpen(true)}>{openButton}</button>
       )}
 
       <Transition
@@ -97,6 +95,6 @@ export default function Modal({
           </div>
         </Dialog>
       </Transition>
-    </>
+    </div>
   );
 }

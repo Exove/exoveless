@@ -60,7 +60,7 @@ export default function Carousel({}: CarouselProps) {
           </div>
         </div>
         <div className="overflow-x-hidden" ref={emblaRef}>
-          <div className="flex touch-pan-y touch-pinch-zoom">
+          <div className="flex">
             <div
               className="min-w-0 bg-orange-300 px-10 py-32"
               style={{ flex: "0 0 80%" }}
@@ -103,7 +103,7 @@ export default function Carousel({}: CarouselProps) {
           </div>
         </div>
         <div className="overflow-x-hidden" ref={emblaRef2}>
-          <div className="flex touch-pan-y touch-pinch-zoom">
+          <div className="flex">
             <div
               className="min-w-0 bg-orange-300 px-10 py-32"
               style={{ flex: "0 0 30%" }}
@@ -169,10 +169,7 @@ export default function Carousel({}: CarouselProps) {
             </button>
           </div>
         </div>
-        <div
-          className="flex touch-pan-y overflow-x-scroll scroll-smooth"
-          ref={ref}
-        >
+        <div className="flex overflow-x-scroll scroll-smooth" ref={ref}>
           <div
             className="min-w-0 snap-center bg-orange-300 px-10 py-32"
             style={{ flex: "0 0 30%" }}
@@ -237,10 +234,7 @@ export default function Carousel({}: CarouselProps) {
             </button>
           </div>
         </div>
-        <div
-          className="flex touch-pan-y snap-x overflow-x-scroll scroll-smooth"
-          ref={ref2}
-        >
+        <div className="flex snap-x overflow-x-scroll scroll-smooth" ref={ref2}>
           <div
             className="min-w-0 snap-center bg-orange-300 px-10 py-32"
             style={{ flex: "0 0 30%" }}

@@ -25,6 +25,7 @@ import ModalExample from "./examples/modal-example";
 import NotificationExample from "./examples/notification-example";
 import TabsExample from "./examples/tabs-example";
 import Carousel from "components/carousel/carousel";
+import Scroller from "components/scroller/scroller";
 
 interface ComponentsProps {
   mainMenu?: any;
@@ -53,10 +54,58 @@ export default function Components({ mainMenu }: ComponentsProps) {
 
       <div id="carousel">
         <Heading level="h2" size="large">
-          Carousel and Slider (draft)
+          Carousel and Scroller
         </Heading>
       </div>
+
       <Carousel />
+
+      <Scroller
+        slides={[
+          <div
+            className="flex h-52 items-center justify-center bg-orange-200"
+            key="1"
+          >
+            <a href="">Slide 1</a>
+          </div>,
+          <div
+            className="flex h-52 items-center justify-center bg-blue-200"
+            key="2"
+          >
+            <a href="">Slide 2</a>
+          </div>,
+          <div
+            className="flex h-52 items-center justify-center bg-red-200"
+            key="3"
+          >
+            <a>Slide 3</a>
+          </div>,
+          <div
+            className="flex h-52 items-center justify-center bg-yellow-200"
+            key="4"
+          >
+            <a href="">Slide 4</a>
+          </div>,
+          <div
+            className="flex h-52 items-center justify-center bg-blue-200"
+            key="5"
+          >
+            <a href="">Slide 5</a>
+          </div>,
+          <div
+            className="flex h-52 items-center justify-center bg-orange-200"
+            key="6"
+          >
+            <a href="">Slide 6</a>
+          </div>,
+          <div
+            className="flex h-52 items-center justify-center bg-red-200"
+            key="7"
+          >
+            <a href="">Slide 7</a>
+          </div>,
+        ]}
+      />
 
       <DropdownExample />
 

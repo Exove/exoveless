@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <meta name="description" content="Example description." />
+        <meta name="description" content="React UI component library." />
         {/* <meta
           property="og:image"
           content="https://kriteeripankki.fi/og_placeholder.png"
@@ -12,7 +12,7 @@ export default function Document() {
         {/* <link rel="shortcut icon" href="/favicon.ico" /> */}
         {/* <link rel="preconnect" href="https://fonts.googleapis.com" /> */}
       </Head>
-      <body className="text-neutral-950 border-gray-500">
+      <body className="border-gray-500 text-neutral-950">
         <Main />
         <NextScript />
       </body>

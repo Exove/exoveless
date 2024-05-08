@@ -63,52 +63,28 @@ export default function Components({ mainMenu }: ComponentsProps) {
       <div>
         2. Slider with native scroll
         <div className="flex overflow-x-scroll scroll-smooth">
-          <div
-            className="min-w-0 snap-center bg-orange-300 px-10 py-32"
-            style={{ flex: "0 0 30%" }}
-          >
+          <div className="w-[300px] min-w-0 flex-shrink-0 bg-orange-300 px-10 py-32">
             Slide 1
           </div>
-          <div
-            className="min-w-0 snap-center bg-blue-300 px-10 py-32"
-            style={{ flex: "0 0 30%" }}
-          >
+          <div className="w-[300px] min-w-0 flex-shrink-0 bg-blue-300 px-10 py-32">
             Slide 2
           </div>
-          <div
-            className="min-w-0 snap-center bg-yellow-300 px-10 py-32"
-            style={{ flex: "0 0 30%" }}
-          >
+          <div className="w-[300px] min-w-0 flex-shrink-0 bg-yellow-300 px-10 py-32">
             Slide 3
           </div>
-          <div
-            className="min-w-0 snap-center bg-red-300 px-10 py-32"
-            style={{ flex: "0 0 30%" }}
-          >
+          <div className="w-[300px] min-w-0 flex-shrink-0 bg-red-300 px-10 py-32">
             Slide 4
           </div>
-          <div
-            className="min-w-0 snap-center bg-orange-300 px-10 py-32"
-            style={{ flex: "0 0 30%" }}
-          >
+          <div className="w-[300px] min-w-0 flex-shrink-0 bg-orange-300 px-10 py-32">
             Slide 5
           </div>
-          <div
-            className="min-w-0 snap-center bg-blue-300 px-10 py-32"
-            style={{ flex: "0 0 30%" }}
-          >
+          <div className="w-[300px] min-w-0 flex-shrink-0 bg-blue-300 px-10 py-32">
             Slide 6
           </div>
-          <div
-            className="min-w-0 snap-center bg-yellow-300 px-10 py-32"
-            style={{ flex: "0 0 30%" }}
-          >
+          <div className="w-[300px] min-w-0 flex-shrink-0 bg-yellow-300 px-10 py-32">
             Slide 7
           </div>
-          <div
-            className="min-w-0 snap-center bg-red-300 px-10 py-32"
-            style={{ flex: "0 0 30%" }}
-          >
+          <div className="w-[300px] min-w-0 flex-shrink-0 bg-red-300 px-10 py-32">
             Slide 8
           </div>
         </div>

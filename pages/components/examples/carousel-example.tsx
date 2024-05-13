@@ -36,18 +36,12 @@ export default function CarouselExample() {
       </div>
       <CodeBlock>
         {`
-<Heading level="h1" size="xl">
-  Heading XL
-</Heading>
-<Heading level="h2" size="large">
-  Heading Large
-</Heading>
-<Heading level="h3" size="medium">
-  Heading Medium
-</Heading>
-<Heading level="h4" size="small">
-  Heading Small
-</Heading>
+<Carousel>
+  <CarouselSlide>
+    <a href="#">Title</a>
+    // ...
+  </CarouselSlide>
+</Carousel>
           `}
       </CodeBlock>
     </ContentSection>

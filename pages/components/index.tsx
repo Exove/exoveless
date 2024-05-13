@@ -24,7 +24,10 @@ import MobileMenuExample from "./examples/mobile-menu-example";
 import ModalExample from "./examples/modal-example";
 import NotificationExample from "./examples/notification-example";
 import TabsExample from "./examples/tabs-example";
-import Carousel from "components/carousel/carousel";
+import { Carousel } from "components/carousel/carousel";
+import { Scroller } from "components/scroller/scroller";
+import CarouselExample from "./examples/carousel-example";
+import ScrollerExample from "./examples/scroller-example";
 
 interface ComponentsProps {
   mainMenu?: any;
@@ -51,12 +54,9 @@ export default function Components({ mainMenu }: ComponentsProps) {
 
       <ButtonExample />
 
-      <div id="carousel">
-        <Heading level="h2" size="large">
-          Carousel and Slider (draft)
-        </Heading>
-      </div>
-      <Carousel />
+      <CarouselExample />
+
+      <ScrollerExample />
 
       <DropdownExample />
 

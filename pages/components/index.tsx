@@ -24,8 +24,10 @@ import MobileMenuExample from "./examples/mobile-menu-example";
 import ModalExample from "./examples/modal-example";
 import NotificationExample from "./examples/notification-example";
 import TabsExample from "./examples/tabs-example";
-import Carousel from "components/carousel/carousel";
-import Scroller from "components/scroller/scroller";
+import { Carousel } from "components/carousel/carousel";
+import { Scroller } from "components/scroller/scroller";
+import CarouselExample from "./examples/carousel-example";
+import ScrollerExample from "./examples/scroller-example";
 
 interface ComponentsProps {
   mainMenu?: any;
@@ -52,90 +54,9 @@ export default function Components({ mainMenu }: ComponentsProps) {
 
       <ButtonExample />
 
-      <div id="carousel">
-        <Heading level="h2" size="large">
-          Carousel and Scroller
-        </Heading>
-      </div>
+      <CarouselExample />
 
-      <Carousel />
-
-      <div>
-        2. Slider with native scroll
-        <div className="flex overflow-x-scroll scroll-smooth">
-          <div className="w-[300px] min-w-0 flex-shrink-0 bg-orange-300 px-10 py-32">
-            Slide 1
-          </div>
-          <div className="w-[300px] min-w-0 flex-shrink-0 bg-blue-300 px-10 py-32">
-            Slide 2
-          </div>
-          <div className="w-[300px] min-w-0 flex-shrink-0 bg-yellow-300 px-10 py-32">
-            Slide 3
-          </div>
-          <div className="w-[300px] min-w-0 flex-shrink-0 bg-red-300 px-10 py-32">
-            Slide 4
-          </div>
-          <div className="w-[300px] min-w-0 flex-shrink-0 bg-orange-300 px-10 py-32">
-            Slide 5
-          </div>
-          <div className="w-[300px] min-w-0 flex-shrink-0 bg-blue-300 px-10 py-32">
-            Slide 6
-          </div>
-          <div className="w-[300px] min-w-0 flex-shrink-0 bg-yellow-300 px-10 py-32">
-            Slide 7
-          </div>
-          <div className="w-[300px] min-w-0 flex-shrink-0 bg-red-300 px-10 py-32">
-            Slide 8
-          </div>
-        </div>
-      </div>
-
-      <Scroller
-        slides={[
-          <div
-            className="flex h-52 items-center justify-center bg-orange-200"
-            key="1"
-          >
-            <a href="">Slide 1</a>
-          </div>,
-          <div
-            className="flex h-52 items-center justify-center bg-blue-200"
-            key="2"
-          >
-            <a href="">Slide 2</a>
-          </div>,
-          <div
-            className="flex h-52 items-center justify-center bg-red-200"
-            key="3"
-          >
-            <a>Slide 3</a>
-          </div>,
-          <div
-            className="flex h-52 items-center justify-center bg-yellow-200"
-            key="4"
-          >
-            <a href="">Slide 4</a>
-          </div>,
-          <div
-            className="flex h-52 items-center justify-center bg-blue-200"
-            key="5"
-          >
-            <a href="">Slide 5</a>
-          </div>,
-          <div
-            className="flex h-52 items-center justify-center bg-orange-200"
-            key="6"
-          >
-            <a href="">Slide 6</a>
-          </div>,
-          <div
-            className="flex h-52 items-center justify-center bg-red-200"
-            key="7"
-          >
-            <a href="">Slide 7</a>
-          </div>,
-        ]}
-      />
+      <ScrollerExample />
 
       <DropdownExample />
 

@@ -6,10 +6,10 @@ import { useRef, useState } from "react";
 import { useScrollContainer } from "react-indiana-drag-scroll";
 
 interface ScrollerProps {
-  slides: Array<any>;
+  children: any;
 }
 
-export default function Scroller({ slides }: ScrollerProps) {
+export function Scroller({ children }: ScrollerProps) {
   const scrollContainer = useScrollContainer();
   const ref = useRef<HTMLInputElement>(null);
   const [scrollRef, setScrollRef] = useState(true); // Same element uses two different refs
@@ -27,13 +27,13 @@ export default function Scroller({ slides }: ScrollerProps) {
         <div className="flex gap-4">
           <button
             onClick={() => {
-              scroll(-900); // Set for your needs
+              scroll(-600); // Change this if needed
             }}
           >
             <ChevronLeftIcon className="h-6 w-6 stroke-2" />
             <span className="sr-only">Scroll left</span>
           </button>
-          <button onClick={() => scroll(900)}>
+          <button onClick={() => scroll(600)}>
             <ChevronRightIcon className="h-6 w-6 stroke-2" />
             <span className="sr-only">Scroll right</span>
           </button>
@@ -47,12 +47,12 @@ export default function Scroller({ slides }: ScrollerProps) {
         tabIndex={0}
         ref={scrollRef ? scrollContainer.ref : ref}
       >
-        {slides.map((slide, index) => (
-          <div key={index} className="w-[300px] flex-shrink-0">
-            {slide}
-          </div>
-        ))}
+        {children}
       </div>
     </div>
   );
+}
+
+export function ScrollerSlide({ children }) {
+  return <div className="w-[300px] flex-shrink-0">{children}</div>;
 }

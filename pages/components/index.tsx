@@ -28,6 +28,7 @@ import { Carousel } from "components/carousel/carousel";
 import { Scroller } from "components/scroller/scroller";
 import CarouselExample from "./examples/carousel-example";
 import ScrollerExample from "./examples/scroller-example";
+import RichTextExample from "./examples/rich-text-example";
 
 interface ComponentsProps {
   mainMenu?: any;
@@ -56,8 +57,6 @@ export default function Components({ mainMenu }: ComponentsProps) {
 
       <CarouselExample />
 
-      <ScrollerExample />
-
       <DropdownExample />
 
       <HeadingExample />
@@ -67,6 +66,10 @@ export default function Components({ mainMenu }: ComponentsProps) {
       <ModalExample />
 
       <NotificationExample />
+
+      <RichTextExample />
+
+      <ScrollerExample />
 
       <TabsExample />
       <ContentSection>

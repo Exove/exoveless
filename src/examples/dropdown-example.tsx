@@ -27,11 +27,11 @@ export default function DropdownExample() {
       <CodeBlock>
         {`
 <Dropdown
-  label="Language"
+  label="Dropdown menu"
   items={[
-    { title: "Finnish", url: "/" },
-    { title: "English", url: "/en" },
-    { title: "Swedish", url: "/sv" },
+    { title: "Link one", url: "#" },
+    { title: "Link two", url: "#" },
+    { title: "Link three", url: "#" },
   ]}
 />
           `}

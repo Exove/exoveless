@@ -1,19 +1,13 @@
-# Basic Starter
+This is a UI component library optimised for Next.js.
 
-Starter kit for building your site with Next.js and Drupal. UI is built with Typescript, Headless UI, Tailwind CSS.
+## How to Use
 
-## Get started
+1. Choose the components you want to use. Examples page: [`exoveless.vercel.app`](https://exoveless.vercel.app) or `npm run dev` [http://localhost:3000](http://localhost:3000)
 
-- Copy and rename .env.example as .env.local
-- Install node packages by running `npm install`
-- Start dev mode by `npm run dev` or preview built project with `npm run preview`
+2. Copy the components you want to use to your project.
 
-## Development tools
+3. Install component level node module dependencies if needed.
 
-Project includes workspace file for VSCode.
+4. See `/examples` folder or [`Code blocks`](https://exoveless.vercel.app) how to implement the selected components to your page.
 
-Recommended VSCode extensions:
-
-- Prettier - Code formatting
-- Tailwind CSS IntelliSense
-- ESLint
+5. Edit, style and extend the components to suite your purpose.

@@ -1,10 +1,5 @@
-module.exports = {
-  mode: "jit",
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./templates/**/*.{js,ts,jsx,tsx}",
-  ],
+const config = {
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       fontFamily: {
@@ -27,9 +22,8 @@ module.exports = {
     },
   },
   plugins: [
-    require("tailwindcss-animate"),
     require("@tailwindcss/typography"),
-    require("@tailwindcss/forms"),
     require("@headlessui/tailwindcss"),
   ],
 };
+export default config;

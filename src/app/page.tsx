@@ -12,7 +12,6 @@ import RichTextExample from "../examples/rich-text-example";
 import FormExample from "@/examples/form-example";
 import SidePanelExample from "@/examples/side-panel-example";
 import SidePanelMenuExample from "@/examples/side-panel-menu-example";
-import { Grid } from "@/components/containers/grid";
 
 export default function Home() {
   return (

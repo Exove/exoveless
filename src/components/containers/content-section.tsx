@@ -1,5 +1,5 @@
 interface ContentSectionProps {
-  children: any;
+  children: React.ReactNode;
 }
 
 export default function ContentSection({ children }: ContentSectionProps) {

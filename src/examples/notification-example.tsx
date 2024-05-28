@@ -1,7 +1,8 @@
 import ContentSection from "../components/containers/content-section";
 import Heading from "../components/heading/heading";
 import Notification from "../components/notification/notification";
-import CodeBlock from "./code-block";
+import CodeBlock from "./code-block/code-block";
+import CodeHighlight from "./code-block/code-highlight";
 
 export default function NotificationExample() {
   return (
@@ -40,11 +41,13 @@ export default function NotificationExample() {
         </div>
       </div>
       <CodeBlock>
-        {`
+        <CodeHighlight title="notification-example.tsx">
+          {`
 <Notification type="error">
   Change a few things up and try submitting again!
 </Notification>
           `}
+        </CodeHighlight>
       </CodeBlock>
     </ContentSection>
   );

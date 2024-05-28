@@ -1,5 +1,5 @@
 interface ButtonContainerProps {
-  children: any;
+  children: React.ReactNode;
 }
 
 export default function ButtonContainer({ children }: ButtonContainerProps) {

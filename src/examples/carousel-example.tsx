@@ -1,7 +1,8 @@
 import { Carousel, CarouselSlide } from "../components/carousel/carousel";
 import ContentSection from "../components/containers/content-section";
 import Heading from "../components/heading/heading";
-import CodeBlock from "./code-block";
+import CodeBlock from "./code-block/code-block";
+import CodeHighlight from "./code-block/code-highlight";
 
 const slides = [
   { color: "bg-orange-300", text: "Slide 1" },
@@ -35,7 +36,8 @@ export default function CarouselExample() {
         </div>
       </div>
       <CodeBlock>
-        {`
+        <CodeHighlight title="carousel-example.tsx">
+          {`
 <Carousel>
   <CarouselSlide>
     <a href="#">Title</a>
@@ -43,6 +45,7 @@ export default function CarouselExample() {
   </CarouselSlide>
 </Carousel>
           `}
+        </CodeHighlight>
       </CodeBlock>
     </ContentSection>
   );

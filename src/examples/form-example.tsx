@@ -6,7 +6,7 @@ import Notification from "@/components/notification/notification";
 import { useState } from "react";
 import ContentSection from "@/components/containers/content-section";
 import Heading from "@/components/heading/heading";
-import CodeBlock from "./code-block";
+import CodeBlock from "./code-block/code-block";
 
 type Inputs = {
   address: string;
@@ -126,9 +126,7 @@ export default function FormExample() {
       </div>
       <CodeBlock>
         {`
-// See form-example.tsx
-
-// Styling comes from globals.css
+// See form-example.tsx and globals.css
           `}
       </CodeBlock>
     </ContentSection>

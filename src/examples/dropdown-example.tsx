@@ -1,7 +1,8 @@
 import ContentSection from "../components/containers/content-section";
 import Dropdown from "../components/dropdown/dropdown";
 import Heading from "../components/heading/heading";
-import CodeBlock from "./code-block";
+import CodeBlock from "./code-block/code-block";
+import CodeHighlight from "./code-block/code-highlight";
 
 export default function DropdownExample() {
   return (
@@ -25,7 +26,8 @@ export default function DropdownExample() {
         </div>
       </div>
       <CodeBlock>
-        {`
+        <CodeHighlight title="dropdown-example.tsx">
+          {`
 <Dropdown
   label="Dropdown menu"
   items={[
@@ -35,6 +37,7 @@ export default function DropdownExample() {
   ]}
 />
           `}
+        </CodeHighlight>
       </CodeBlock>
     </ContentSection>
   );

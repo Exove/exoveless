@@ -2,7 +2,8 @@ import Button from "../components/button/button";
 import ContentSection from "../components/containers/content-section";
 import Heading from "../components/heading/heading";
 import Modal from "../components/modal/modal";
-import CodeBlock from "./code-block";
+import CodeBlock from "./code-block/code-block";
+import CodeHighlight from "./code-block/code-highlight";
 
 export default function ModalExample() {
   return (
@@ -30,7 +31,8 @@ export default function ModalExample() {
         </div>
       </div>
       <CodeBlock>
-        {`
+        <CodeHighlight title="modal-example.tsx">
+          {`
 <Modal
   title="Title"
   id="example"
@@ -44,6 +46,7 @@ export default function ModalExample() {
   email with all of the details of your order.
 </Modal>
           `}
+        </CodeHighlight>
       </CodeBlock>
     </ContentSection>
   );

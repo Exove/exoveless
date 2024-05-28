@@ -2,7 +2,6 @@
 
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import { CopyBlock, github } from "react-code-blocks";
 
 export default function CodeBlock({ children }: any) {
   const [open, setOpen] = useState(false);
@@ -20,11 +19,7 @@ export default function CodeBlock({ children }: any) {
           </div>
         )}
       </button>
-      {open && (
-        <code className="mt-2 block border border-gray-300 p-3">
-          <CopyBlock text={children} language="jsx" theme={github} />
-        </code>
-      )}
+      {open && <code className="">{children}</code>}
     </div>
   );
 }

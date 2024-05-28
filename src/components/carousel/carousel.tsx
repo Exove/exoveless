@@ -8,7 +8,7 @@ import { useCallback, useRef } from "react";
 import clsx from "clsx";
 
 interface CarouselProps {
-  children: any;
+  children: React.ReactNode;
 }
 
 export function Carousel({ children }: CarouselProps) {
@@ -64,7 +64,7 @@ export function Carousel({ children }: CarouselProps) {
   );
 }
 
-export function CarouselSlide({ children }: any) {
+export function CarouselSlide({ children }: CarouselProps) {
   return (
     <div className="min-w-0" style={{ flex: "0 0 80%" }}>
       {children}

@@ -10,7 +10,7 @@ import clsx from "clsx";
 import { useState } from "react";
 
 interface NotificationProps {
-  children: any;
+  children: React.ReactNode;
   type?: "standard" | "error" | "success" | "warning";
 }
 

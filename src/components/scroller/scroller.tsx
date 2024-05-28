@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 import { useScrollContainer } from "react-indiana-drag-scroll";
 
 interface ScrollerProps {
-  children: any;
+  children: React.ReactNode;
 }
 
 export function Scroller({ children }: ScrollerProps) {
@@ -42,7 +42,7 @@ export function Scroller({ children }: ScrollerProps) {
       <div
         className={clsx(
           "flex overflow-x-scroll",
-          !scrollRef && "scroll-smooth"
+          !scrollRef && "scroll-smooth",
         )}
         tabIndex={0}
         ref={scrollRef ? scrollContainer.ref : ref}
@@ -53,6 +53,6 @@ export function Scroller({ children }: ScrollerProps) {
   );
 }
 
-export function ScrollerSlide({ children }: any) {
+export function ScrollerSlide({ children }: ScrollerProps) {
   return <div className="w-[300px] flex-shrink-0">{children}</div>;
 }

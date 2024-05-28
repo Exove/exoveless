@@ -1,6 +1,7 @@
 import ContentSection from "../components/containers/content-section";
 import Heading from "../components/heading/heading";
-import CodeBlock from "./code-block";
+import CodeBlock from "./code-block/code-block";
+import CodeHighlight from "./code-block/code-highlight";
 
 export default function HeadingExample() {
   return (
@@ -28,7 +29,8 @@ export default function HeadingExample() {
         </div>
       </div>
       <CodeBlock>
-        {`
+        <CodeHighlight title="heading-example.tsx">
+          {`
 <Heading level="h1" size="xl">
   Heading XL
 </Heading>
@@ -42,6 +44,7 @@ export default function HeadingExample() {
   Heading Small
 </Heading>
           `}
+        </CodeHighlight>
       </CodeBlock>
     </ContentSection>
   );

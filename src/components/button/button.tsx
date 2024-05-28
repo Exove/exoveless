@@ -7,7 +7,7 @@ interface ButtonProps {
     | "secondary"
     | "secondary-outlined"
     | "disabled";
-  children: any;
+  children: React.ReactNode;
   url?: string;
   onClick?: any;
   size?: "small" | "medium";

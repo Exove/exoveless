@@ -6,7 +6,8 @@ import {
 } from "../components/accordion/accordion";
 import ContentSection from "../components/containers/content-section";
 import Heading from "../components/heading/heading";
-import CodeBlock from "./code-block";
+import CodeBlock from "./code-block/code-block";
+import CodeHighlight from "./code-block/code-highlight";
 
 const accordionItems = [
   {
@@ -49,7 +50,8 @@ export default function AccordionExample() {
         </div>
       </div>
       <CodeBlock>
-        {`
+        <CodeHighlight title="accordion-example.tsx">
+          {`
 <Accordion type="multiple">
   <AccordionItem value="item-1">
     <AccordionTrigger>Title content</AccordionTrigger>
@@ -57,6 +59,7 @@ export default function AccordionExample() {
   </AccordionItem>
 </Accordion>
               `}
+        </CodeHighlight>
       </CodeBlock>
     </ContentSection>
   );

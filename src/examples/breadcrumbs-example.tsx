@@ -1,7 +1,8 @@
 import Breadcrumbs from "../components/breadcrumbs/breadcrumbs";
 import ContentSection from "../components/containers/content-section";
 import Heading from "../components/heading/heading";
-import CodeBlock from "./code-block";
+import CodeBlock from "./code-block/code-block";
+import CodeHighlight from "./code-block/code-highlight";
 
 interface BreadcrumbsExampleProps {
   propertyName?: string;
@@ -28,7 +29,8 @@ export default function BreadcrumbsExample({}: BreadcrumbsExampleProps) {
       </div>
 
       <CodeBlock>
-        {`
+        <CodeHighlight title="breadcrumbs-example.tsx">
+          {`
 <Breadcrumbs
   path={[
     { title: "Products", url: "#" },
@@ -36,6 +38,7 @@ export default function BreadcrumbsExample({}: BreadcrumbsExampleProps) {
   ]}
 />
           `}
+        </CodeHighlight>
       </CodeBlock>
     </ContentSection>
   );

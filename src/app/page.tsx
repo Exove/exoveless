@@ -3,7 +3,6 @@ import BreadcrumbsExample from "../examples/breadcrumbs-example";
 import ButtonExample from "../examples/button-example";
 import DropdownExample from "../examples/dropdown-example";
 import HeadingExample from "../examples/heading-example";
-import MobileMenuExample from "../examples/mobile-menu-example";
 import ModalExample from "../examples/modal-example";
 import NotificationExample from "../examples/notification-example";
 import TabsExample from "../examples/tabs-example";
@@ -11,6 +10,9 @@ import CarouselExample from "../examples/carousel-example";
 import ScrollerExample from "../examples/scroller-example";
 import RichTextExample from "../examples/rich-text-example";
 import FormExample from "@/examples/form-example";
+import SidePanelExample from "@/examples/side-panel-example";
+import SidePanelMenuExample from "@/examples/side-panel-menu-example";
+import { Grid } from "@/components/containers/grid";
 
 export default function Home() {
   return (
@@ -29,8 +31,6 @@ export default function Home() {
 
       <HeadingExample />
 
-      <MobileMenuExample />
-
       <ModalExample />
 
       <NotificationExample />
@@ -38,6 +38,10 @@ export default function Home() {
       <RichTextExample />
 
       <ScrollerExample />
+
+      <SidePanelExample />
+
+      <SidePanelMenuExample />
 
       <TabsExample />
     </>

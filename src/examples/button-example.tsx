@@ -3,7 +3,8 @@ import Button from "../components/button/button";
 import ButtonContainer from "../components/containers/button-container";
 import ContentSection from "../components/containers/content-section";
 import Heading from "../components/heading/heading";
-import CodeBlock from "./code-block";
+import CodeBlock from "./code-block/code-block";
+import CodeHighlight from "./code-block/code-highlight";
 
 export default function ButtonExample() {
   return (
@@ -57,11 +58,13 @@ export default function ButtonExample() {
         </div>
       </div>
       <CodeBlock>
-        {`
+        <CodeHighlight title="button-example.tsx">
+          {`
 <Button style="primary">Primary</Button>
 <Button style="secondary" size="small">Small button</Button>
 <Button style="secondary-outlined" url="#">Button as link</Button>
           `}
+        </CodeHighlight>
       </CodeBlock>
     </ContentSection>
   );

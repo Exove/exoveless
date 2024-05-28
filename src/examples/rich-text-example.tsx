@@ -1,7 +1,9 @@
+import { Code } from "bright";
 import ContentSection from "../components/containers/content-section";
 import Heading from "../components/heading/heading";
 import RichText from "../components/rich-text/rich-text";
-import CodeBlock from "./code-block";
+import CodeBlock from "./code-block/code-block";
+import CodeHighlight from "./code-block/code-highlight";
 
 export default function RichTextExample() {
   return (
@@ -79,7 +81,8 @@ export default function RichTextExample() {
         </div>
       </div>
       <CodeBlock>
-        {`
+        <CodeHighlight title="rich-text-example.tsx">
+          {`
 <RichText>
   <p>Regular paragraph text.</p>
   <blockquote>
@@ -87,6 +90,7 @@ export default function RichTextExample() {
   </blockquote>
 </RichText>
           `}
+        </CodeHighlight>
       </CodeBlock>
     </ContentSection>
   );

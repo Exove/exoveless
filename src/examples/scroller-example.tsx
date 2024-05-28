@@ -2,7 +2,8 @@ import { Carousel } from "../components/carousel/carousel";
 import ContentSection from "../components/containers/content-section";
 import Heading from "../components/heading/heading";
 import { Scroller, ScrollerSlide } from "../components/scroller/scroller";
-import CodeBlock from "./code-block";
+import CodeBlock from "./code-block/code-block";
+import CodeHighlight from "./code-block/code-highlight";
 
 const slides = [
   { color: "bg-orange-300", text: "Slide 1" },
@@ -38,7 +39,8 @@ export default function ScrollerExample() {
       </div>
 
       <CodeBlock>
-        {`
+        <CodeHighlight title="scroller-example.tsx">
+          {`
 <Scroller>
   <ScrollerSlide>
     <a href="#">Title</a>
@@ -46,6 +48,7 @@ export default function ScrollerExample() {
   </ScrollerSlide>
 </Scroller>
           `}
+        </CodeHighlight>
       </CodeBlock>
     </ContentSection>
   );

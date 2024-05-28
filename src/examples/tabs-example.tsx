@@ -6,7 +6,8 @@ import {
 } from "../components//tabs/tabs";
 import ContentSection from "../components/containers/content-section";
 import Heading from "../components/heading/heading";
-import CodeBlock from "./code-block";
+import CodeBlock from "./code-block/code-block";
+import CodeHighlight from "./code-block/code-highlight";
 
 export default function TabsExample() {
   return (
@@ -34,7 +35,8 @@ export default function TabsExample() {
         </div>
       </div>
       <CodeBlock>
-        {`
+        <CodeHighlight title="tabs-example.tsx">
+          {`
 <Tabs defaultValue="account">
   <TabsList>
     <TabsTrigger value="account">Account</TabsTrigger>
@@ -46,6 +48,7 @@ export default function TabsExample() {
   <TabsContent value="password">Change your password here.</TabsContent>
 </Tabs>
           `}
+        </CodeHighlight>
       </CodeBlock>
     </ContentSection>
   );

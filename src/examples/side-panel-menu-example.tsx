@@ -43,7 +43,7 @@ export default function SidePanelMenuExample() {
                 { title: "Link three", url: "#" },
               ],
             },
-            { title: "Blog", url: "/templates" },
+            { title: "Blog", url: "#" },
             { title: "Login", url: "#" },
           ]}
         />
@@ -80,7 +80,7 @@ export default function SidePanelMenuExample() {
         { title: "Link three", url: "#" },
       ],
     },
-    { title: "Blog", url: "/templates" },
+    { title: "Blog", url: "#" },
     { title: "Login", url: "#" },
   ]}
 />

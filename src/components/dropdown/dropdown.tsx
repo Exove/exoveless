@@ -11,7 +11,7 @@ import { Fragment } from "react";
 
 interface DropdownProps {
   label: string;
-  items: Array<{ title: string; url: string; locale?: string }>;
+  items: Array<{ title: string; url: string }>;
 }
 
 export default function Dropdown({ label, items }: DropdownProps) {
@@ -41,8 +41,7 @@ export default function Dropdown({ label, items }: DropdownProps) {
               <MenuItem>
                 <Link
                   href={item.url}
-                  locale={item.locale}
-                  className="flex w-full items-center rounded-md py-2 pl-7 pr-2 ui-active:bg-neutral-100"
+                  className="flex w-full items-center rounded-md py-2 pl-7 pr-2 ui-active:bg-neutral-200"
                 >
                   {item.title}
                 </Link>

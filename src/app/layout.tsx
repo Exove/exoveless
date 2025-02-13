@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
+import { Toaster } from "@/components/toaster/toaster";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -60,6 +61,7 @@ export default function RootLayout({
         <div className="mx-auto max-w-screen-lg px-4 lg:px-0">
           <main className="container mx-auto py-10">{children}</main>
         </div>
+        <Toaster />
       </body>
     </html>
   );

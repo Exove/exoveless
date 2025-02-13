@@ -12,6 +12,7 @@ import RichTextExample from "../examples/rich-text-example";
 import FormExample from "@/examples/form-example";
 import SidePanelExample from "@/examples/side-panel-example";
 import SidePanelMenuExample from "@/examples/side-panel-menu-example";
+import ToasterExample from "@/examples/toaster-example";
 
 export default function Home() {
   return (
@@ -41,6 +42,8 @@ export default function Home() {
       <SidePanelExample />
 
       <SidePanelMenuExample />
+
+      <ToasterExample />
 
       <TabsExample />
     </>

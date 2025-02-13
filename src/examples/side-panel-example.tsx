@@ -3,6 +3,7 @@ import ContentSection from "../components/containers/content-section";
 import Heading from "../components/heading/heading";
 import CodeBlock from "./code-block/code-block";
 import CodeHighlight from "./code-block/code-highlight";
+import Button from "@/components/button/button";
 
 export default function SidePanelExample() {
   return (
@@ -14,32 +15,38 @@ export default function SidePanelExample() {
       </div>
       <div className="gap-5 lg:flex">
         <div className="lg:w-72"></div>
-        <SidePanel openLabel="Open side panel left" position="left">
+        <SidePanel
+          openLabel="Open side panel left"
+          position="left"
+          title="Shopping Cart"
+          footer={<Button fullWidth>Footer button</Button>}
+        >
           <div className="px-7">
-            <Heading size="lg" level="h2">
-              Shopping Cart
-            </Heading>
-            <p>Your cart is empty</p>
+            <p className="mt-20 text-center">Your cart is empty</p>
           </div>
         </SidePanel>
-        <SidePanel openLabel="Open side panel right">
+        <SidePanel
+          openLabel="Open side panel right"
+          position="right"
+          title="Shopping Cart"
+          footer={<Button fullWidth>Footer button</Button>}
+        >
           <div className="px-7">
-            <Heading size="lg" level="h2">
-              Shopping Cart
-            </Heading>
-            <p>Your cart is empty</p>
+            <p className="mt-20 text-center">Your cart is empty</p>
           </div>
         </SidePanel>
       </div>
       <CodeBlock>
         <CodeHighlight title="side-panel-example.tsx">
           {`
-<SidePanel openLabel="Open side panel">
+<SidePanel
+  openLabel="Open side panel right"
+  position="right"
+  title="Shopping Cart"
+  footer={<Button fullWidth>Footer button</Button>}
+>
   <div className="px-7">
-    <Heading size="lg" level="h2">
-      Shopping Cart
-    </Heading>
-    <p>Your cart is empty</p>
+    <p className="mt-20 text-center">Your cart is empty</p>
   </div>
 </SidePanel>
           `}

@@ -13,8 +13,10 @@
     "@headlessui/react": "^2.2.0",
     "@headlessui/tailwindcss": "^0.2.2",
     "@heroicons/react": "^2.1.3",
+    "@radix-ui/react-navigation-menu": "^1.2.5",
     "@radix-ui/react-tabs": "^1.0.4",
     "bright": "^0.8.5",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.1.2",
     "embla-carousel-wheel-gestures": "^8.0.0-rc05",
@@ -24,7 +26,8 @@
     "react-dom": "^18",
     "react-hook-form": "^7.51.4",
     "sonner": "^1.7.4",
-    "tailwind-merge": "^3.0.1"
+    "tailwind-merge": "^3.0.1",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",

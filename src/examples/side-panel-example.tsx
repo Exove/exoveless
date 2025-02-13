@@ -18,7 +18,7 @@ export default function SidePanelExample() {
         <SidePanel
           openLabel="Open side panel left"
           position="left"
-          title="Shopping Cart"
+          title="Header title"
           footer={<Button fullWidth>Footer button</Button>}
         >
           <div className="px-7">
@@ -28,7 +28,7 @@ export default function SidePanelExample() {
         <SidePanel
           openLabel="Open side panel right"
           position="right"
-          title="Shopping Cart"
+          title="Header title"
           footer={<Button fullWidth>Footer button</Button>}
         >
           <div className="px-7">

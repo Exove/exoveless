@@ -13,22 +13,48 @@ export default function Breadcrumbs({ path = [] }: BreadcrumbsProps) {
     const container = document.getElementById("breadcrumbsContainer");
 
     if (container) {
-      container.scrollLeft = container.scrollWidth;
+      container.scrollTo({
+        left: container.scrollWidth,
+        behavior: "smooth",
+      });
     }
   }, []);
 
+  if (!path.length) {
+    return (
+      <nav aria-label="breadcrumbs">
+        <ol id="breadcrumbsContainer" className="text-vdGrey-700 flex gap-2">
+          <li>
+            <Link href="/" aria-current="page">
+              Home
+            </Link>
+          </li>
+        </ol>
+      </nav>
+    );
+  }
+
   return (
     <nav aria-label="breadcrumbs">
-      <ol id="breadcrumbsContainer" className="flex gap-2 text-vdGrey-700">
+      <ol id="breadcrumbsContainer" className="text-vdGrey-700 flex gap-2">
         <li>
-          <Link href={"/"}>Home</Link>
+          <Link href="/">Home</Link>
         </li>
 
         {path.map((pathItem, index) => {
+          const isLast = index === path.length - 1;
           return (
-            <li key={index + pathItem.title} className="flex gap-2">
+            <li
+              key={`${pathItem.url}-${pathItem.title}`}
+              className="flex gap-2"
+            >
               <span aria-hidden="true">/</span>
-              <Link href={pathItem.url}>{pathItem.title}</Link>
+              <Link
+                href={pathItem.url}
+                {...(isLast ? { "aria-current": "page" } : {})}
+              >
+                {pathItem.title}
+              </Link>
             </li>
           );
         })}

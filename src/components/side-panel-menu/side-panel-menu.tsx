@@ -93,7 +93,7 @@ export default function SidePanelMenu({ items }: SidePanelMenuProps) {
                         (item) => item.title === title,
                       )?.url || "#"
                     }
-                    className="block border-t border-slate-700 p-3 text-lg transition-all duration-200 hover:bg-slate-700"
+                    className="block border-t border-slate-200 p-3 text-lg text-slate-700 transition-all duration-200 hover:bg-slate-100"
                   >
                     All
                   </Link>
@@ -101,13 +101,13 @@ export default function SidePanelMenu({ items }: SidePanelMenuProps) {
               </>
             )}
 
-            <ul className="w-full divide-y divide-slate-700 overflow-scroll break-words border-y border-slate-700 text-lg">
+            <ul className="w-full divide-y divide-slate-200 overflow-scroll break-words border-y border-slate-200 text-lg text-slate-700">
               {currentItems?.map((item, index) => (
                 <li key={`${item.url}-${index}`}>
                   {!item.sublinks ? (
                     <Link
                       href={item.url}
-                      className="block p-3 transition-all duration-200 hover:bg-slate-700"
+                      className="block p-3 transition-all duration-200 hover:bg-slate-100"
                     >
                       {item.title}
                     </Link>
@@ -116,7 +116,7 @@ export default function SidePanelMenu({ items }: SidePanelMenuProps) {
                       onClick={() =>
                         handleSubmenuClick(item.sublinks!, item.title)
                       }
-                      className="flex w-full items-center justify-between p-3 text-lg transition-all duration-200 hover:bg-slate-700"
+                      className="flex w-full items-center justify-between p-3 text-lg text-slate-700 transition-all duration-200 hover:bg-slate-100"
                     >
                       {item.title}
                       <ChevronRightIcon className="h-6 w-6 stroke-2" />

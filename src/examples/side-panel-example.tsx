@@ -14,7 +14,7 @@ export default function SidePanelExample() {
       </div>
       <div className="gap-5 lg:flex">
         <div className="lg:w-72"></div>
-        <SidePanel openLabel="Open side panel right">
+        <SidePanel openLabel="Open side panel left" position="left">
           <div className="px-7">
             <Heading size="lg" level="h2">
               Shopping Cart
@@ -22,7 +22,7 @@ export default function SidePanelExample() {
             <p>Your cart is empty</p>
           </div>
         </SidePanel>
-        <SidePanel openLabel="Open side panel left" position="left">
+        <SidePanel openLabel="Open side panel right">
           <div className="px-7">
             <Heading size="lg" level="h2">
               Shopping Cart

@@ -23,9 +23,7 @@ export default function ButtonExample() {
             </ButtonContainer>
           </div>
           <ButtonContainer>
-            <Button style="secondary" fullWidth>
-              Secondary Button
-            </Button>
+            <Button style="secondary">Secondary Button</Button>
           </ButtonContainer>
         </div>
       </div>

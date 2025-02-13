@@ -100,26 +100,28 @@ export default function SidePanel({
                   }
                 >
                   <div className="pointer-events-auto w-screen max-w-[500px] p-2">
-                    <DialogPanel className="relative flex h-full w-full flex-col overflow-hidden rounded-lg bg-slate-800 p-5">
+                    <DialogPanel className="relative flex h-full w-full flex-col overflow-hidden rounded-lg bg-white p-5 shadow-lg">
                       <div className="flex h-full max-w-[500px] flex-col">
                         <div className="mb-4 flex items-end justify-between">
                           {showBackButton ? (
                             <button
-                              className="flex items-center gap-2 text-lg"
+                              className="flex items-center gap-2 text-lg text-gray-900"
                               onClick={onBack}
                             >
                               <ChevronRightIcon className="h-6 w-6 rotate-180 stroke-2" />
                               Back
                             </button>
                           ) : title ? (
-                            <h2 className="text-2xl font-bold">{title}</h2>
+                            <h2 className="text-2xl font-bold text-gray-900">
+                              {title}
+                            </h2>
                           ) : (
                             <div />
                           )}
 
                           <button onClick={handleClose}>
                             <span className="sr-only">Close</span>
-                            <XMarkIcon className="h-10 w-10 rounded-full bg-slate-700 p-2 hover:bg-slate-600 active:bg-slate-700" />
+                            <XMarkIcon className="h-10 w-10 rounded-full bg-gray-100 p-2 hover:bg-gray-200 active:bg-gray-300" />
                           </button>
                         </div>
                         <div className="flex-1 overflow-y-auto overscroll-contain [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">

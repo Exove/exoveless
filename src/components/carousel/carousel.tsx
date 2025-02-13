@@ -1,72 +1,77 @@
 "use client";
 
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import useEmblaCarousel from "embla-carousel-react";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import { DotButton, useDotButton } from "./carousel-dot-button";
-import { useCallback, useRef } from "react";
+import { NavigationButton } from "./carousel-navigation-button";
+import { useCallback } from "react";
 import clsx from "clsx";
 
 interface CarouselProps {
   children: React.ReactNode;
+  className?: string;
+  hideNavigationButtons?: boolean;
+  hideDotButtons?: boolean;
 }
 
-export function Carousel({ children }: CarouselProps) {
-  const ref = useRef<HTMLInputElement>(null);
-
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, duration: 20 }, [
-    WheelGesturesPlugin(),
-  ]);
+export function Carousel({
+  children,
+  className,
+  hideNavigationButtons = false,
+  hideDotButtons = false,
+}: CarouselProps) {
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      loop: false,
+      duration: 20,
+    },
+    [WheelGesturesPlugin()],
+  );
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi);
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
   return (
-    <div>
-      <div className="mb-2 flex justify-end">
-        <div className="flex gap-4">
-          <button onClick={scrollPrev}>
-            <ChevronLeftIcon className="h-6 w-6 stroke-2" />
-            <span className="sr-only">Scroll left</span>
-          </button>
-          <button onClick={scrollNext}>
-            <ChevronRightIcon className="h-6 w-6 stroke-2" />
-            <span className="sr-only">Scroll right</span>
-          </button>
+    <div className={className}>
+      {!hideNavigationButtons && (
+        <div className="mb-2 flex justify-end">
+          <div className="flex gap-4">
+            <NavigationButton direction="prev" onClick={scrollPrev} />
+            <NavigationButton direction="next" onClick={scrollNext} />
+          </div>
         </div>
-      </div>
+      )}
+
       <div className="overflow-x-hidden" ref={emblaRef}>
         <div className="flex">{children}</div>
       </div>
-      <div className="flex justify-center gap-2 py-4">
-        {scrollSnaps.map((_, index) => (
-          <DotButton
-            key={index}
-            onClick={() => onDotButtonClick(index)}
-            className={clsx(
-              "h-3.5 w-3.5 rounded-full bg-slate-300",
-              index === selectedIndex && "!bg-slate-500",
-            )}
-          >
-            Slide {index + 1}
-          </DotButton>
-        ))}
-      </div>
+
+      {!hideDotButtons && (
+        <div className="flex justify-center gap-2 py-4">
+          {scrollSnaps.map((_, index) => (
+            <DotButton
+              key={index}
+              onClick={() => onDotButtonClick(index)}
+              className={clsx(
+                "h-3.5 w-3.5 rounded-full bg-slate-300",
+                index === selectedIndex && "!bg-slate-500",
+              )}
+            >
+              Slide {index + 1}
+            </DotButton>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
 
-export function CarouselSlide({ children }: CarouselProps) {
+export function CarouselSlide({ children, className }: CarouselProps) {
   return (
-    <div className="min-w-0" style={{ flex: "0 0 80%" }}>
+    <div className={clsx("min-w-0", className)} style={{ flex: "0 0 80%" }}>
       {children}
     </div>
   );

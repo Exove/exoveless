@@ -46,9 +46,7 @@ export default function Modal({
 
   return (
     <div>
-      {openButton && (
-        <button onClick={() => setIsOpen(true)}>{openButton}</button>
-      )}
+      {openButton && <div onClick={() => setIsOpen(true)}>{openButton}</div>}
 
       <Transition
         appear

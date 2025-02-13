@@ -9,7 +9,7 @@ export default function ModalExample() {
   return (
     <ContentSection>
       <div className="mb-20 border-b pb-4">
-        <Heading level="h2" size="large" zeroMargin>
+        <Heading level="h2" size="lg">
           Modal
         </Heading>
       </div>
@@ -19,11 +19,7 @@ export default function ModalExample() {
           <Modal
             title="Title"
             id="example"
-            openButton={
-              <Button style="primary" tag="div">
-                Open
-              </Button>
-            }
+            openButton={<Button style="primary">Open</Button>}
           >
             Your payment has been successfully submitted. We’ve sent you an
             email with all of the details of your order.

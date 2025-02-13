@@ -32,7 +32,7 @@ export default function FormExample() {
   return (
     <ContentSection>
       <div className="mb-20 border-b pb-4">
-        <Heading level="h2" size="large" zeroMargin>
+        <Heading level="h2" size="lg" className="mb-0">
           Form
         </Heading>
       </div>
@@ -116,7 +116,7 @@ export default function FormExample() {
                   )}
                 </div>
 
-                <Button style="primary-outlined" size="small" type="submit">
+                <Button style="secondary" size="sm" type="submit">
                   Submit
                 </Button>
               </form>

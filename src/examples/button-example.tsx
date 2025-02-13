@@ -10,7 +10,7 @@ export default function ButtonExample() {
   return (
     <ContentSection>
       <div className="mb-20 border-b pb-4">
-        <Heading level="h2" size="large" zeroMargin>
+        <Heading level="h2" size="lg" className="mb-0">
           Button
         </Heading>
       </div>
@@ -20,16 +20,11 @@ export default function ButtonExample() {
           <div className="mb-10">
             <ButtonContainer>
               <Button style="primary">Primary Button</Button>
-              <Button style="primary-outlined">Outlined Button</Button>
             </ButtonContainer>
           </div>
           <ButtonContainer>
-            <Button style="secondary">Secondary Button</Button>
-            <Button style="secondary-outlined">
-              <div className="flex items-center gap-3">
-                <BellAlertIcon className="h-5 w-5 stroke-2" />
-                Outlined with Icon
-              </div>
+            <Button style="secondary" fullWidth>
+              Secondary Button
             </Button>
           </ButtonContainer>
         </div>
@@ -39,20 +34,14 @@ export default function ButtonExample() {
         <div className="flex-1">
           <div className="mb-10">
             <ButtonContainer>
-              <Button style="primary" size="small">
+              <Button style="primary" size="sm">
                 Primary Button
-              </Button>
-              <Button style="primary-outlined" size="small">
-                Outlined Button
               </Button>
             </ButtonContainer>
           </div>
           <ButtonContainer>
-            <Button style="secondary" size="small">
+            <Button style="secondary" size="sm">
               Secondary Button
-            </Button>
-            <Button style="secondary-outlined" size="small">
-              Outlined Button
             </Button>
           </ButtonContainer>
         </div>
@@ -61,7 +50,7 @@ export default function ButtonExample() {
         <CodeHighlight title="button-example.tsx">
           {`
 <Button style="primary">Primary</Button>
-<Button style="secondary" size="small">Small button</Button>
+<Button style="secondary" size="sm">Small button</Button>
 <Button style="secondary-outlined" url="#">Button as link</Button>
           `}
         </CodeHighlight>

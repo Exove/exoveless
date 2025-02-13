@@ -12,7 +12,7 @@ export default function BreadcrumbsExample({}: BreadcrumbsExampleProps) {
   return (
     <ContentSection>
       <div className="mb-20 border-b pb-4">
-        <Heading level="h2" size="large" zeroMargin>
+        <Heading level="h2" size="lg" className="mb-0">
           Breadcrumbs
         </Heading>
       </div>

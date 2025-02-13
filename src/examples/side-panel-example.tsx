@@ -8,7 +8,7 @@ export default function SidePanelExample() {
   return (
     <ContentSection>
       <div className="mb-20 border-b pb-4">
-        <Heading level="h2" size="large" zeroMargin>
+        <Heading level="h2" size="lg" className="mb-0">
           Side Panel
         </Heading>
       </div>
@@ -16,7 +16,7 @@ export default function SidePanelExample() {
         <div className="lg:w-72"></div>
         <SidePanel openLabel="Open side panel right">
           <div className="px-7">
-            <Heading size="large" level="h2">
+            <Heading size="lg" level="h2">
               Shopping Cart
             </Heading>
             <p>Your cart is empty</p>
@@ -24,7 +24,7 @@ export default function SidePanelExample() {
         </SidePanel>
         <SidePanel openLabel="Open side panel left" position="left">
           <div className="px-7">
-            <Heading size="large" level="h2">
+            <Heading size="lg" level="h2">
               Shopping Cart
             </Heading>
             <p>Your cart is empty</p>
@@ -36,7 +36,7 @@ export default function SidePanelExample() {
           {`
 <SidePanel openLabel="Open side panel">
   <div className="px-7">
-    <Heading size="large" level="h2">
+    <Heading size="lg" level="h2">
       Shopping Cart
     </Heading>
     <p>Your cart is empty</p>

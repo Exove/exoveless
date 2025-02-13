@@ -7,7 +7,7 @@ export default function HeadingExample() {
   return (
     <ContentSection>
       <div className="mb-20 border-b pb-4">
-        <Heading level="h2" size="large" zeroMargin>
+        <Heading level="h2" size="lg" className="mb-0">
           Heading
         </Heading>
       </div>
@@ -17,13 +17,13 @@ export default function HeadingExample() {
           <Heading level="h1" size="xl">
             Heading XL
           </Heading>
-          <Heading level="h2" size="large">
+          <Heading level="h2" size="lg">
             Heading Large
           </Heading>
-          <Heading level="h3" size="medium">
+          <Heading level="h3" size="md">
             Heading Medium
           </Heading>
-          <Heading level="h4" size="small">
+          <Heading level="h4" size="sm">
             Heading Small
           </Heading>
         </div>
@@ -34,13 +34,13 @@ export default function HeadingExample() {
 <Heading level="h1" size="xl">
   Heading XL
 </Heading>
-<Heading level="h2" size="large">
+<Heading level="h2" size="lg">
   Heading Large
 </Heading>
-<Heading level="h3" size="medium">
+<Heading level="h3" size="md">
   Heading Medium
 </Heading>
-<Heading level="h4" size="small">
+<Heading level="h4" size="sm">
   Heading Small
 </Heading>
           `}

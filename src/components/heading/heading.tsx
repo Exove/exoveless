@@ -27,7 +27,7 @@ export default function Heading({
     <Tag
       className={twMerge(
         clsx(
-          "text-slate-100",
+          "text-slate-900",
           size === "xl" && "mb-4 text-4xl font-bold",
           size === "lg" && "mb-8 text-3xl font-bold",
           size === "md" && "mb-6 text-xl font-semibold",

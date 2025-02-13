@@ -19,6 +19,7 @@ export default function ModalExample() {
           <Modal
             title="Title"
             id="example"
+            size="md"
             openButton={<Button style="primary">Open</Button>}
           >
             Your payment has been successfully submitted. We’ve sent you an

@@ -9,16 +9,18 @@ import {
 } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
 import Button from "../button/button";
+import { clsx } from "clsx";
 
 interface ModalProps {
   children: React.ReactNode;
   id: string;
   title?: string;
   closeButtonText?: string;
-  openButton?: any;
+  openButton?: React.ReactNode;
   height?: string;
   open?: boolean;
   saveStateToLocalStorage?: boolean; // Use only if open is set to true
+  size?: "sm" | "md" | "lg" | "xl";
 }
 
 export default function Modal({
@@ -29,6 +31,7 @@ export default function Modal({
   height = "auto",
   open = false,
   saveStateToLocalStorage = false,
+  size = "md",
   id,
 }: ModalProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -77,7 +80,17 @@ export default function Modal({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <DialogPanel className="relative w-full max-w-md transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <DialogPanel
+                  className={clsx(
+                    "relative w-full transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all",
+                    {
+                      "max-w-lg": size === "sm",
+                      "max-w-xl": size === "md" || !size,
+                      "max-w-3xl": size === "lg",
+                      "max-w-5xl": size === "xl",
+                    },
+                  )}
+                >
                   <DialogTitle
                     as="h3"
                     className="text-lg font-medium leading-6"

@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
+import { useId } from "react";
 
 interface HeadingProps {
   level: "h1" | "h2" | "h3" | "h4";
@@ -14,20 +15,22 @@ export default function Heading({
   children,
   className,
 }: HeadingProps) {
+  const uniqueId = useId();
   const Tag = level;
 
   // Create id from the text
-  const id = children
+  const baseId = children
     .toLowerCase()
     .replace(/\u00e4/g, "a")
     .replace(/\u00f6/g, "o")
     .replace(/\W/g, "-");
 
+  const id = `${baseId}-${uniqueId.replace(/:/g, "")}`;
+
   return (
     <Tag
       className={twMerge(
         clsx(
-          "text-slate-900",
           size === "xl" && "mb-4 text-4xl font-bold",
           size === "lg" && "mb-8 text-3xl font-bold",
           size === "md" && "mb-6 text-xl font-semibold",

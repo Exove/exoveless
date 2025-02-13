@@ -24,6 +24,8 @@ export default function Notification({
 
   return (
     <div
+      role="alert"
+      aria-live="polite"
       className={clsx(
         "rounded-lg border px-8 py-4",
         type === "standard" && " border-purple-600",

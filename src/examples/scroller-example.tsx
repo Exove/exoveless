@@ -12,6 +12,12 @@ const slides = [
   { color: "bg-green-300", text: "Slide 4" },
   { color: "bg-pink-300", text: "Slide 5" },
   { color: "bg-purple-300", text: "Slide 6" },
+  { color: "bg-orange-300", text: "Slide 7" },
+  { color: "bg-blue-300", text: "Slide 8" },
+  { color: "bg-yellow-300", text: "Slide 9" },
+  { color: "bg-green-300", text: "Slide 10" },
+  { color: "bg-pink-300", text: "Slide 11" },
+  { color: "bg-purple-300", text: "Slide 12" },
 ];
 
 export default function ScrollerExample() {
@@ -24,7 +30,6 @@ export default function ScrollerExample() {
       </div>
 
       <div className="flex gap-5">
-        <div className="lg:w-72"></div>
         <div className="min-w-0 flex-1">
           <Scroller>
             {slides.map((slide, index) => (

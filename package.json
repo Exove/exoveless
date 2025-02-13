@@ -23,7 +23,6 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.4",
-    "react-indiana-drag-scroll": "^3.0.3-alpha",
     "sonner": "^1.7.4",
     "tailwind-merge": "^3.0.1"
   },

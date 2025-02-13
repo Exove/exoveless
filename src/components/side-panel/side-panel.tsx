@@ -9,7 +9,6 @@ import {
 import { ChevronRightIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import { Fragment, useState } from "react";
-import { useTranslations } from "next-intl";
 import React from "react";
 
 interface MenuDialogProps {
@@ -23,6 +22,7 @@ interface MenuDialogProps {
   buttonId?: string;
   showBackButton?: boolean;
   onBack?: () => void;
+  onClose?: () => void;
 }
 
 export default function SidePanel({
@@ -35,9 +35,14 @@ export default function SidePanel({
   buttonId = "open-side-panel",
   showBackButton = false,
   onBack,
+  onClose,
 }: MenuDialogProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const t = useTranslations("common");
+
+  const handleClose = () => {
+    setIsOpen(false);
+    onClose?.();
+  };
 
   // Check if openLabel is a button element
   const isButtonLabel =
@@ -56,7 +61,7 @@ export default function SidePanel({
       </Trigger>
 
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog className="relative z-50" onClose={() => setIsOpen(false)}>
+        <Dialog className="relative z-50" onClose={handleClose}>
           <TransitionChild
             as={Fragment}
             enter="ease-out duration-300"
@@ -104,7 +109,7 @@ export default function SidePanel({
                               onClick={onBack}
                             >
                               <ChevronRightIcon className="h-6 w-6 rotate-180 stroke-2" />
-                              {t("back")}
+                              Back
                             </button>
                           ) : title ? (
                             <h2 className="text-2xl font-bold">{title}</h2>
@@ -112,8 +117,8 @@ export default function SidePanel({
                             <div />
                           )}
 
-                          <button onClick={() => setIsOpen(false)}>
-                            <span className="sr-only">{t("closeMenu")}</span>
+                          <button onClick={handleClose}>
+                            <span className="sr-only">Close</span>
                             <XMarkIcon className="h-10 w-10 rounded-full bg-slate-700 p-2 hover:bg-slate-600 active:bg-slate-700" />
                           </button>
                         </div>

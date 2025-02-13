@@ -1,3 +1,6 @@
+import typography from "@tailwindcss/typography";
+import headlessui from "@headlessui/tailwindcss";
+
 const config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
@@ -21,9 +24,6 @@ const config = {
       },
     },
   },
-  plugins: [
-    require("@tailwindcss/typography"),
-    require("@headlessui/tailwindcss"),
-  ],
+  plugins: [typography, headlessui],
 };
 export default config;

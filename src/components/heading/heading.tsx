@@ -1,21 +1,22 @@
 import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 
 interface HeadingProps {
   level: "h1" | "h2" | "h3" | "h4";
-  size?: "xl" | "large" | "medium" | "small";
+  size?: "xl" | "lg" | "md" | "sm" | "xs";
   children: string;
-  zeroMargin?: boolean;
+  className?: string;
 }
 
 export default function Heading({
   level,
   size,
   children,
-  zeroMargin,
+  className,
 }: HeadingProps) {
   const Tag = level;
 
-  // ID is used for anchor links.
+  // Create id from the text
   const id = children
     .toLowerCase()
     .replace(/\u00e4/g, "a")
@@ -24,13 +25,16 @@ export default function Heading({
 
   return (
     <Tag
-      className={clsx(
-        "break-words font-bold",
-        size === "xl" && "mb-10 text-3xl lg:text-5xl lg:leading-tight",
-        size === "large" && "mb-6 text-2xl lg:text-3xl",
-        size === "medium" && "mb-6 text-xl lg:text-2xl",
-        size === "small" && "text-xl",
-        zeroMargin && "!mb-0",
+      className={twMerge(
+        clsx(
+          "text-slate-100",
+          size === "xl" && "mb-4 text-4xl font-bold",
+          size === "lg" && "mb-8 text-3xl font-bold",
+          size === "md" && "mb-6 text-xl font-semibold",
+          size === "sm" && "mb-4 text-lg font-semibold",
+          size === "xs" && "mb-4 text-base font-medium",
+        ),
+        className,
       )}
       id={id}
     >

@@ -19,11 +19,13 @@
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.1.2",
     "embla-carousel-wheel-gestures": "^8.0.0-rc05",
+    "motion": "^12.4.2",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.4",
-    "react-indiana-drag-scroll": "^3.0.3-alpha"
+    "react-indiana-drag-scroll": "^3.0.3-alpha",
+    "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",

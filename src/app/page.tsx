@@ -17,68 +17,66 @@ import ComponentSearch from "@/components/component-search/component-search";
 
 export default function Home() {
   return (
-    <>
-      <ComponentSearch>
-        <div data-component="AccordionExample">
-          <AccordionExample />
-        </div>
+    <ComponentSearch>
+      <div data-component="AccordionExample">
+        <AccordionExample />
+      </div>
 
-        <div data-component="BreadcrumbsExample">
-          <BreadcrumbsExample />
-        </div>
+      <div data-component="BreadcrumbsExample">
+        <BreadcrumbsExample />
+      </div>
 
-        <div data-component="ButtonExample">
-          <ButtonExample />
-        </div>
+      <div data-component="ButtonExample">
+        <ButtonExample />
+      </div>
 
-        <div data-component="CarouselExample">
-          <CarouselExample />
-        </div>
+      <div data-component="CarouselExample">
+        <CarouselExample />
+      </div>
 
-        <div data-component="DropdownExample">
-          <DropdownExample />
-        </div>
+      <div data-component="DropdownExample">
+        <DropdownExample />
+      </div>
 
-        <div data-component="FormExample">
-          <FormExample />
-        </div>
+      <div data-component="FormExample">
+        <FormExample />
+      </div>
 
-        <div data-component="HeadingExample">
-          <HeadingExample />
-        </div>
+      <div data-component="HeadingExample">
+        <HeadingExample />
+      </div>
 
-        <div data-component="ModalExample">
-          <ModalExample />
-        </div>
+      <div data-component="ModalExample">
+        <ModalExample />
+      </div>
 
-        <div data-component="NotificationExample">
-          <NotificationExample />
-        </div>
+      <div data-component="NotificationExample">
+        <NotificationExample />
+      </div>
 
-        <div data-component="RichTextExample">
-          <RichTextExample />
-        </div>
+      <div data-component="RichTextExample">
+        <RichTextExample />
+      </div>
 
-        <div data-component="ScrollerExample">
-          <ScrollerExample />
-        </div>
+      <div data-component="ScrollerExample">
+        <ScrollerExample />
+      </div>
 
-        <div data-component="SidePanelExample">
-          <SidePanelExample />
-        </div>
+      <div data-component="SidePanelExample">
+        <SidePanelExample />
+      </div>
 
-        <div data-component="SidePanelMenuExample">
-          <SidePanelMenuExample />
-        </div>
+      <div data-component="SidePanelMenuExample">
+        <SidePanelMenuExample />
+      </div>
 
-        <div data-component="ToasterExample">
-          <ToasterExample />
-        </div>
+      <div data-component="ToasterExample">
+        <ToasterExample />
+      </div>
 
-        <div data-component="TabsExample">
-          <TabsExample />
-        </div>
-      </ComponentSearch>
-    </>
+      <div data-component="TabsExample">
+        <TabsExample />
+      </div>
+    </ComponentSearch>
   );
 }

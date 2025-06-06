@@ -57,7 +57,7 @@ export function Carousel({
               onClick={() => onDotButtonClick(index)}
               className={clsx(
                 "h-3.5 w-3.5 rounded-full bg-slate-300",
-                index === selectedIndex && "!bg-slate-500",
+                index === selectedIndex && "bg-slate-500!",
               )}
             >
               Slide {index + 1}

@@ -35,7 +35,7 @@ export default function Button({
     primary:
       "bg-purple-700 hover:bg-purple-600 active:bg-purple-700 text-white",
     secondary:
-      "text-purple-600 outline outline-2 outline-offset-[-2px] outline-purple-600 hover:bg-purple-600 hover:text-white active:bg-purple-800",
+      "text-purple-600 outline-solid outline-2 -outline-offset-2 outline-purple-600 hover:bg-purple-600 hover:text-white active:bg-purple-800",
     text: "text-slate-300 hover:text-slate-200 active:text-slate-300",
     disabled: "cursor-not-allowed bg-gray-500 text-white",
   };

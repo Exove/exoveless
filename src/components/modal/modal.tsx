@@ -102,7 +102,7 @@ export default function Modal({
                   </div>
 
                   <div className="mt-4 flex justify-center">
-                    <Button style="primary" onClick={onClose}>
+                    <Button onClick={onClose}>
                       {closeButtonText}
                     </Button>
                   </div>

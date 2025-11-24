@@ -6,10 +6,10 @@ const meta: Meta<typeof Accordion> = {
   title: "Components/Accordion",
   component: Accordion,
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
     docs: {
       description: {
-        component: "Accessible accordion built on top of Radix primitives with animated content.",
+        component: "Accessible accordion built on top of Radix primitives. To enable animations, see Tailwind configuration in global.css",
       },
     },
   },
@@ -34,20 +34,22 @@ const items = [
   },
 ];
 
-export const Default: Story = {
+export const OpenSingle: Story = {
   render: () => (
-    <Accordion type="single" collapsible className="w-full max-w-xl rounded-lg bg-white px-4">
-      <AccordionItem value="item-1">
-        <AccordionTrigger>{items[0].title}</AccordionTrigger>
-        <AccordionContent>{items[0].content}</AccordionContent>
-      </AccordionItem>
+    <Accordion type="single" collapsible>
+      {items.map((item, index) => (
+        <AccordionItem key={item.title} value={`item-${index}`}>
+          <AccordionTrigger>{item.title}</AccordionTrigger>
+          <AccordionContent>{item.content}</AccordionContent>
+        </AccordionItem>
+      ))}
     </Accordion>
   ),
 };
 
-export const MultipleItems: Story = {
+export const OpenMultiple: Story = {
   render: () => (
-    <Accordion type="multiple" className="w-full max-w-xl rounded-lg bg-white px-4">
+    <Accordion type="multiple">
       {items.map((item, index) => (
         <AccordionItem key={item.title} value={`item-${index}`}>
           <AccordionTrigger>{item.title}</AccordionTrigger>

@@ -7,9 +7,10 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 function Accordion({
+  className,
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Root>) {
-  return <AccordionPrimitive.Root data-slot="accordion" {...props} />;
+  return <AccordionPrimitive.Root className={cn("max-w-xl", className)} data-slot="accordion" {...props} />;
 }
 
 function AccordionItem({

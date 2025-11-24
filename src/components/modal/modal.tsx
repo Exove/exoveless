@@ -8,7 +8,7 @@ import {
   TransitionChild,
 } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
-import Button from "../button/button";
+import Button from "../Button/Button";
 import { clsx } from "clsx";
 
 interface ModalProps {

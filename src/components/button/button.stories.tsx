@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Button from "./button";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
+
+import Button from "./Button";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
@@ -8,35 +10,25 @@ const meta: Meta<typeof Button> = {
     layout: "centered",
     docs: {
       description: {
-        component:
-          "A versatile button component with multiple styles, sizes, and states. Can render as a button or link.",
+        component: "Composable button built on top of CVA variants. Supports link-style rendering via `asChild`.",
       },
     },
   },
   tags: ["autodocs"],
   argTypes: {
-    style: {
-      control: { type: "select" },
-      options: ["primary", "secondary", "text", "disabled"],
-      description: "Visual style of the button",
+    variant: {
+      control: "select",
+      options: ["default", "secondary", "link"],
     },
     size: {
-      control: { type: "select" },
-      options: ["sm", "md"],
-      description: "Size of the button",
+      control: "select",
+      options: ["default", "sm", "lg", "icon"],
+    },
+    asChild: {
+      control: "boolean",
     },
     fullWidth: {
-      control: { type: "boolean" },
-      description: "Whether button should take full width",
-    },
-    disabled: {
-      control: { type: "boolean" },
-      description: "Whether button is disabled",
-    },
-    type: {
-      control: { type: "select" },
-      options: ["button", "submit", "reset"],
-      description: "HTML button type",
+      control: "boolean",
     },
   },
 };
@@ -44,91 +36,44 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
-    style: "primary",
-    children: "Primary Button",
+    children: "Continue",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    style: "secondary",
-    children: "Secondary Button",
+    variant: "secondary",
+    children: "Secondary",
   },
 };
 
-export const Text: Story = {
+export const WithIcon: Story = {
   args: {
-    style: "text",
-    children: "Text Button",
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-    children: "Disabled Button",
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: "sm",
-    children: "Small Button",
-  },
-};
-
-export const Medium: Story = {
-  args: {
-    size: "md",
-    children: "Medium Button",
+    variant: "default",
+    children: (
+      <>
+        Seuraava
+        <ArrowRightIcon className="size-4" />
+      </>
+    ),
   },
 };
 
 export const FullWidth: Story = {
   args: {
+    children: "Full width action",
     fullWidth: true,
-    children: "Full Width Button",
   },
   parameters: {
     layout: "padded",
   },
 };
 
-export const AsLink: Story = {
+export const LinkVariant: Story = {
   args: {
-    href: "#",
-    children: "Button as Link",
-  },
-};
-
-export const WithClickHandler: Story = {
-  args: {
-    children: "Click Me",
-    onClick: () => alert("Button clicked!"),
-  },
-};
-
-export const AllVariants: Story = {
-  render: () => (
-    <div className="space-y-4">
-      <div className="flex flex-wrap gap-4">
-        <Button style="primary">Primary</Button>
-        <Button style="secondary">Secondary</Button>
-        <Button style="text">Text</Button>
-        <Button disabled>Disabled</Button>
-      </div>
-      <div className="flex flex-wrap gap-4">
-        <Button size="sm">Small</Button>
-        <Button size="md">Medium</Button>
-      </div>
-      <div>
-        <Button fullWidth>Full Width Button</Button>
-      </div>
-    </div>
-  ),
-  parameters: {
-    layout: "padded",
+    variant: "link",
+    children: "Show details",
   },
 };

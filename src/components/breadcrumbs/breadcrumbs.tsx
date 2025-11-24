@@ -1,59 +1,47 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
-interface BreadcrumbsProps {
-  path: Array<{ title: string; url: string }>;
-}
+import { cn } from "@/lib/utils";
 
-export default function Breadcrumbs({ path = [] }: BreadcrumbsProps) {
+type BreadcrumbItem = { label: string; href: string };
+
+type BreadcrumbsProps = {
+  items?: BreadcrumbItem[];
+  homeLabel?: string;
+};
+
+export default function Breadcrumbs({ items = [], homeLabel = "Home" }: BreadcrumbsProps) {
+  const containerRef = useRef<HTMLOListElement>(null);
+
   useEffect(() => {
-    // Scroll to the end of the breadcrumb container on mobile view.
-    const container = document.getElementById("breadcrumbsContainer");
+    if (!containerRef.current) return;
+    containerRef.current.scrollTo({ left: containerRef.current.scrollWidth, behavior: "smooth" });
+  }, [items]);
 
-    if (container) {
-      container.scrollTo({
-        left: container.scrollWidth,
-        behavior: "smooth",
-      });
-    }
-  }, []);
-
-  if (!path.length) {
-    return (
-      <nav aria-label="breadcrumbs">
-        <ol id="breadcrumbsContainer" className="text-vdGrey-700 flex gap-2">
-          <li>
-            <Link href="/" aria-current="page">
-              Home
-            </Link>
-          </li>
-        </ol>
-      </nav>
-    );
-  }
+  const crumbs = [{ label: homeLabel, href: "/" }, ...items];
 
   return (
-    <nav aria-label="breadcrumbs">
-      <ol id="breadcrumbsContainer" className="text-vdGrey-700 flex gap-2">
-        <li>
-          <Link href="/">Home</Link>
-        </li>
-
-        {path.map((pathItem, index) => {
-          const isLast = index === path.length - 1;
+    <nav aria-label="Breadcrumb" className="w-full">
+      <ol
+        ref={containerRef}
+        className="flex items-center gap-2 overflow-x-auto text-sm text-gray-600 scrollbar-none"
+      >
+        {crumbs.map((item, index) => {
+          const isLast = index === crumbs.length - 1;
           return (
-            <li
-              key={`${pathItem.url}-${pathItem.title}`}
-              className="flex gap-2"
-            >
-              <span aria-hidden="true">/</span>
+            <li key={`${item.href}-${item.label}`} className="flex items-center gap-2 whitespace-nowrap">
+              {index !== 0 && <span aria-hidden="true" className="text-gray-400">/</span>}
               <Link
-                href={pathItem.url}
-                {...(isLast ? { "aria-current": "page" } : {})}
+                href={item.href}
+                className={cn(
+                  "transition-colors hover:text-black",
+                  isLast ? "font-medium text-black" : "text-gray-600",
+                )}
+                aria-current={isLast ? "page" : undefined}
               >
-                {pathItem.title}
+                {item.label}
               </Link>
             </li>
           );

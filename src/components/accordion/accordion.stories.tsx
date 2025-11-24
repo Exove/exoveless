@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { AccordionItem, AccordionTrigger, AccordionContent } from "./accordion";
 
-const meta: Meta<typeof AccordionItem> = {
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./Accordion";
+
+const meta: Meta<typeof Accordion> = {
   title: "Components/Accordion",
-  component: AccordionItem,
+  component: Accordion,
   parameters: {
     layout: "centered",
     docs: {
       description: {
-        component:
-          "A collapsible accordion component built with HTML details/summary elements.",
+        component: "Accessible accordion built on top of Radix primitives with animated content.",
       },
     },
   },
@@ -17,77 +17,43 @@ const meta: Meta<typeof AccordionItem> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = Omit<StoryObj<typeof meta>, "args"> & { args?: never };
+
+const items = [
+  {
+    title: "What is React?",
+    content: "React lets you build UIs from small, focused components that stay easy to maintain.",
+  },
+  {
+    title: "Why use Next.js?",
+    content: "Next.js ships routing, rendering strategies, and performance optimisations out of the box.",
+  },
+  {
+    title: "How does Tailwind help?",
+    content: "Utility classes keep styling predictable and avoid context switching when iterating on layouts.",
+  },
+];
 
 export const Default: Story = {
   render: () => (
-    <div className="w-[700px]">
-      <AccordionItem>
-        <AccordionTrigger>What is React?</AccordionTrigger>
-        <AccordionContent>
-          React is a JavaScript library for building user interfaces. It lets
-          you compose complex UIs from small and isolated pieces of code called
-          "components".
-        </AccordionContent>
+    <Accordion type="single" collapsible className="w-full max-w-xl rounded-lg bg-white px-4">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>{items[0].title}</AccordionTrigger>
+        <AccordionContent>{items[0].content}</AccordionContent>
       </AccordionItem>
-    </div>
+    </Accordion>
   ),
 };
 
-export const Multiple: Story = {
+export const MultipleItems: Story = {
   render: () => (
-    <div className="w-[700px] space-y-2">
-      <AccordionItem>
-        <AccordionTrigger>What is React?</AccordionTrigger>
-        <AccordionContent>
-          React is a JavaScript library for building user interfaces. It lets
-          you compose complex UIs from small and isolated pieces of code called
-          "components".
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem>
-        <AccordionTrigger>What is Next.js?</AccordionTrigger>
-        <AccordionContent>
-          Next.js is a React framework that gives you building blocks to create
-          web applications. By framework, we mean Next.js handles the tooling
-          and configuration needed for React.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem>
-        <AccordionTrigger>What is Tailwind CSS?</AccordionTrigger>
-        <AccordionContent>
-          Tailwind CSS is a utility-first CSS framework packed with classes that
-          can be composed to build any design, directly in your markup.
-        </AccordionContent>
-      </AccordionItem>
-    </div>
-  ),
-};
-
-export const LongContent: Story = {
-  render: () => (
-    <div className="w-[700px]">
-      <AccordionItem>
-        <AccordionTrigger>Long Content Example</AccordionTrigger>
-        <AccordionContent>
-          <div className="space-y-4">
-            <p>
-              This is an example of an accordion with longer content that
-              demonstrates how the component handles more complex layouts.
-            </p>
-            <ul className="list-inside list-disc space-y-2">
-              <li>First item in the list</li>
-              <li>Second item with more details</li>
-              <li>Third item that shows how lists work</li>
-            </ul>
-            <p>
-              The accordion smoothly expands and contracts to accommodate
-              different content lengths while maintaining a clean and accessible
-              interface.
-            </p>
-          </div>
-        </AccordionContent>
-      </AccordionItem>
-    </div>
+    <Accordion type="multiple" className="w-full max-w-xl rounded-lg bg-white px-4">
+      {items.map((item, index) => (
+        <AccordionItem key={item.title} value={`item-${index}`}>
+          <AccordionTrigger>{item.title}</AccordionTrigger>
+          <AccordionContent>{item.content}</AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
   ),
 };

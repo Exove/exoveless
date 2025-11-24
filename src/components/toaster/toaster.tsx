@@ -1,12 +1,5 @@
 "use client";
 
-import { CheckCircleIcon } from "@heroicons/react/24/outline";
-import {
-  ExclamationCircleIcon,
-  InformationCircleIcon,
-} from "@heroicons/react/24/outline";
-import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
-import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import { Toaster as Sonner } from "sonner";
 
 type ToasterProps = React.ComponentProps<typeof Sonner>;
@@ -16,23 +9,12 @@ const Toaster = ({ ...props }: ToasterProps) => {
     <Sonner
       toastOptions={{
         classNames: {
-          toast: "bg-gray-100 border border-gray-500 text-gray-900",
-          error: "border-red-500 bg-red-50 text-red-900",
-          success: "border-green-500 bg-green-50 text-green-900",
-          warning: "border-yellow-500 bg-yellow-50 text-yellow-900",
-          info: "border-blue-500 bg-blue-50 text-blue-900",
+          toast: "bg-white border border-gray-300 text-black [&:not([data-type])]:bg-white",
+          error: "!bg-red-50 !border-red-300 !text-red-900",
+          success: "!bg-emerald-50 !border-emerald-300 !text-emerald-900",
+          warning: "!bg-amber-50 !border-amber-300 !text-amber-900",
+          info: "!bg-blue-50 !border-blue-300 !text-blue-900",
         },
-      }}
-      icons={{
-        success: <CheckCircleIcon className="h-5 w-5 text-green-500" />,
-        error: <ExclamationCircleIcon className="h-5 w-5 text-red-500" />,
-        warning: (
-          <ExclamationTriangleIcon className="h-5 w-5 text-yellow-500" />
-        ),
-        info: <InformationCircleIcon className="h-5 w-5 text-blue-500" />,
-        loading: (
-          <ArrowPathIcon className="h-5 w-5 animate-spin text-blue-500" />
-        ),
       }}
       {...props}
     />

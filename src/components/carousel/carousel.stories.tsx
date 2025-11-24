@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Carousel, CarouselSlide } from "./carousel";
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "./Carousel";
 
 const meta: Meta<typeof Carousel> = {
   title: "Components/Carousel",
@@ -8,242 +15,75 @@ const meta: Meta<typeof Carousel> = {
     layout: "padded",
     docs: {
       description: {
-        component:
-          "A carousel component built with Embla Carousel. Supports navigation buttons, dot indicators, and wheel gestures.",
+        component: "Embla based carousel with slot-aware controls and keyboard support.",
       },
     },
   },
   tags: ["autodocs"],
-  argTypes: {
-    hideNavigationButtons: {
-      control: { type: "boolean" },
-      description: "Hide the navigation arrows",
-    },
-    hideDotButtons: {
-      control: { type: "boolean" },
-      description: "Hide the dot indicators",
-    },
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const SampleSlide = ({
-  children,
-  color = "bg-blue-100",
-}: {
-  children: React.ReactNode;
-  color?: string;
-}) => (
-  <div
-    className={`${color} mx-2 flex min-h-[200px] items-center justify-center rounded-lg p-8 text-center`}
-  >
-    {children}
+const Slide = ({ title, description, gradient }: { title: string; description: string; gradient: string }) => (
+  <div className={`flex min-h-[220px] items-center justify-center rounded-xl ${gradient} p-8 text-white`}>
+    <div className="max-w-sm space-y-2 text-center">
+      <h3 className="text-2xl font-bold">{title}</h3>
+      <p className="text-sm opacity-90">{description}</p>
+    </div>
   </div>
 );
 
+const slides = [
+  {
+    title: "Launch overview",
+    description: "Monitor adoption metrics for the current release train.",
+    gradient: "bg-gradient-to-br from-slate-900 to-indigo-800",
+  },
+  {
+    title: "Usage split",
+    description: "Understand which journeys drive the most value.",
+    gradient: "bg-gradient-to-br from-emerald-900 to-teal-700",
+  },
+  {
+    title: "Performance",
+    description: "Latency, error rates, and cache hit ratios at a glance.",
+    gradient: "bg-gradient-to-br from-purple-700 to-purple-900",
+  },
+];
+
 export const Default: Story = {
-  args: {
-    children: (
-      <>
-        <CarouselSlide>
-          <SampleSlide color="bg-blue-100">
-            <div>
-              <h3 className="mb-2 text-xl font-bold">Slide 1</h3>
-              <p>This is the first slide with some content.</p>
-            </div>
-          </SampleSlide>
-        </CarouselSlide>
-        <CarouselSlide>
-          <SampleSlide color="bg-green-100">
-            <div>
-              <h3 className="mb-2 text-xl font-bold">Slide 2</h3>
-              <p>This is the second slide with different content.</p>
-            </div>
-          </SampleSlide>
-        </CarouselSlide>
-        <CarouselSlide>
-          <SampleSlide color="bg-purple-100">
-            <div>
-              <h3 className="mb-2 text-xl font-bold">Slide 3</h3>
-              <p>This is the third slide completing the carousel.</p>
-            </div>
-          </SampleSlide>
-        </CarouselSlide>
-      </>
-    ),
-  },
+  render: () => (
+    <div className="relative">
+      <Carousel className="w-full max-w-4xl">
+        <CarouselContent>
+          {slides.map((slide) => (
+            <CarouselItem key={slide.title} className="pl-4 md:basis-1/2">
+              <Slide {...slide} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </div>
+  ),
 };
 
-export const WithoutNavigationButtons: Story = {
-  args: {
-    hideNavigationButtons: true,
-    children: (
-      <>
-        <CarouselSlide>
-          <SampleSlide color="bg-red-100">
-            <div>
-              <h3 className="mb-2 text-xl font-bold">No Navigation</h3>
-              <p>
-                This carousel has no navigation buttons. Use dots or wheel
-                gestures.
-              </p>
-            </div>
-          </SampleSlide>
-        </CarouselSlide>
-        <CarouselSlide>
-          <SampleSlide color="bg-yellow-100">
-            <div>
-              <h3 className="mb-2 text-xl font-bold">Slide 2</h3>
-              <p>Navigate using the dot indicators below.</p>
-            </div>
-          </SampleSlide>
-        </CarouselSlide>
-        <CarouselSlide>
-          <SampleSlide color="bg-pink-100">
-            <div>
-              <h3 className="mb-2 text-xl font-bold">Slide 3</h3>
-              <p>Or use wheel gestures if supported.</p>
-            </div>
-          </SampleSlide>
-        </CarouselSlide>
-      </>
-    ),
-  },
-};
-
-export const WithoutDotButtons: Story = {
-  args: {
-    hideDotButtons: true,
-    children: (
-      <>
-        <CarouselSlide>
-          <SampleSlide color="bg-indigo-100">
-            <div>
-              <h3 className="mb-2 text-xl font-bold">No Dots</h3>
-              <p>
-                This carousel has no dot indicators. Use navigation buttons.
-              </p>
-            </div>
-          </SampleSlide>
-        </CarouselSlide>
-        <CarouselSlide>
-          <SampleSlide color="bg-teal-100">
-            <div>
-              <h3 className="mb-2 text-xl font-bold">Slide 2</h3>
-              <p>Navigate using the arrow buttons above.</p>
-            </div>
-          </SampleSlide>
-        </CarouselSlide>
-        <CarouselSlide>
-          <SampleSlide color="bg-orange-100">
-            <div>
-              <h3 className="mb-2 text-xl font-bold">Slide 3</h3>
-              <p>Clean interface without dot indicators.</p>
-            </div>
-          </SampleSlide>
-        </CarouselSlide>
-      </>
-    ),
-  },
-};
-
-export const MinimalCarousel: Story = {
-  args: {
-    hideNavigationButtons: true,
-    hideDotButtons: true,
-    children: (
-      <>
-        <CarouselSlide>
-          <SampleSlide color="bg-gray-100">
-            <div>
-              <h3 className="mb-2 text-xl font-bold">Minimal</h3>
-              <p>This carousel has no controls. Only wheel gestures work.</p>
-            </div>
-          </SampleSlide>
-        </CarouselSlide>
-        <CarouselSlide>
-          <SampleSlide color="bg-slate-100">
-            <div>
-              <h3 className="mb-2 text-xl font-bold">Slide 2</h3>
-              <p>Perfect for touch devices or when you want minimal UI.</p>
-            </div>
-          </SampleSlide>
-        </CarouselSlide>
-      </>
-    ),
-  },
-};
-
-export const ManySlides: Story = {
-  args: {
-    children: (
-      <>
-        {Array.from({ length: 8 }, (_, i) => (
-          <CarouselSlide key={i}>
-            <SampleSlide
-              color={`bg-${["blue", "green", "purple", "red", "yellow", "pink", "indigo", "teal"][i]}-100`}
-            >
-              <div>
-                <h3 className="mb-2 text-xl font-bold">Slide {i + 1}</h3>
-                <p>
-                  This carousel has many slides to demonstrate scrolling
-                  behavior.
-                </p>
-              </div>
-            </SampleSlide>
-          </CarouselSlide>
-        ))}
-      </>
-    ),
-  },
-};
-
-export const ImageCarousel: Story = {
-  args: {
-    children: (
-      <>
-        <CarouselSlide>
-          <div className="mx-2">
-            <div className="flex min-h-[300px] items-center justify-center rounded-lg bg-gradient-to-br from-blue-400 to-blue-600 p-8 text-center text-white">
-              <div>
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white/20">
-                  📸
-                </div>
-                <h3 className="mb-2 text-2xl font-bold">Image Placeholder 1</h3>
-                <p>Beautiful landscape photography</p>
-              </div>
-            </div>
-          </div>
-        </CarouselSlide>
-        <CarouselSlide>
-          <div className="mx-2">
-            <div className="flex min-h-[300px] items-center justify-center rounded-lg bg-gradient-to-br from-green-400 to-green-600 p-8 text-center text-white">
-              <div>
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white/20">
-                  🌅
-                </div>
-                <h3 className="mb-2 text-2xl font-bold">Image Placeholder 2</h3>
-                <p>Stunning sunrise views</p>
-              </div>
-            </div>
-          </div>
-        </CarouselSlide>
-        <CarouselSlide>
-          <div className="mx-2">
-            <div className="flex min-h-[300px] items-center justify-center rounded-lg bg-gradient-to-br from-purple-400 to-purple-600 p-8 text-center text-white">
-              <div>
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white/20">
-                  🏔️
-                </div>
-                <h3 className="mb-2 text-2xl font-bold">Image Placeholder 3</h3>
-                <p>Majestic mountain ranges</p>
-              </div>
-            </div>
-          </div>
-        </CarouselSlide>
-      </>
-    ),
-  },
+export const Vertical: Story = {
+  render: () => (
+    <div className="relative h-[360px]">
+      <Carousel orientation="vertical" className="h-full w-full max-w-xl">
+        <CarouselContent className="pr-4">
+          {slides.map((slide) => (
+            <CarouselItem key={slide.title} className="pt-4">
+              <Slide {...slide} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="-left-10 rotate-0" />
+        <CarouselNext className="-right-10 rotate-0" />
+      </Carousel>
+    </div>
+  ),
 };

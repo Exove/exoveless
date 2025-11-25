@@ -7,9 +7,10 @@ import {
   Transition,
   TransitionChild,
 } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Fragment, useEffect, useState } from "react";
-import Button from "../button/button";
-import { clsx } from "clsx";
+import Button from "../Button/Button";
+import { cn } from "@/lib/utils";
 
 interface ModalProps {
   children: React.ReactNode;
@@ -21,6 +22,7 @@ interface ModalProps {
   open?: boolean;
   saveStateToLocalStorage?: boolean; // Use only if open is set to true
   size?: "sm" | "md" | "lg" | "xl";
+  className?: string;
 }
 
 export default function Modal({
@@ -33,6 +35,7 @@ export default function Modal({
   saveStateToLocalStorage = false,
   size = "md",
   id,
+  className,
 }: ModalProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -66,7 +69,7 @@ export default function Modal({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
+            <div className="fixed inset-0 bg-black/25" />
           </TransitionChild>
 
           <div className="fixed inset-0 overflow-y-auto">
@@ -81,19 +84,28 @@ export default function Modal({
                 leaveTo="opacity-0 scale-95"
               >
                 <DialogPanel
-                  className={clsx(
+                  className={cn(
                     "relative w-full transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all",
                     {
                       "max-w-lg": size === "sm",
-                      "max-w-xl": size === "md" || !size,
-                      "max-w-3xl": size === "lg",
-                      "max-w-5xl": size === "xl",
+                      "max-w-2xl": size === "md" || !size,
+                      "max-w-5xl": size === "lg",
+                      "max-w-7xl": size === "xl",
                     },
+                    className,
                   )}
                 >
+                  <button
+                    type="button"
+                    onClick={onClose}
+                    className="absolute top-4 right-4 rounded-full p-1 text-gray-500 hover:bg-gray-100 hover:text-black"
+                    aria-label="Close modal"
+                  >
+                    <XMarkIcon className="h-5 w-5" />
+                  </button>
                   <DialogTitle
                     as="h3"
-                    className="text-lg font-medium leading-6"
+                    className="mb-6 pr-10 text-lg leading-6 font-medium"
                   >
                     {title}
                   </DialogTitle>
@@ -101,10 +113,8 @@ export default function Modal({
                     {children}
                   </div>
 
-                  <div className="mt-4 flex justify-center">
-                    <Button style="primary" onClick={onClose}>
-                      {closeButtonText}
-                    </Button>
+                  <div className="mt-8 flex justify-center">
+                    <Button onClick={onClose}>{closeButtonText}</Button>
                   </div>
                 </DialogPanel>
               </TransitionChild>

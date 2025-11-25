@@ -1,78 +1,51 @@
-"use client";
+import { cn } from "@/lib/utils";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import Link from "next/link";
-import { clsx } from "clsx";
-
-interface ButtonProps {
-  style?: "primary" | "secondary" | "text" | "disabled";
-  children: React.ReactNode;
-  href?: string;
-  onClick?: () => void;
-  size?: "sm" | "md";
-  type?: "button" | "submit" | "reset";
-  fullWidth?: boolean;
-  id?: string;
-  disabled?: boolean;
-}
+const buttonVariants = cva(
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 aria-invalid:ring-red-500/20 aria-invalid:border-red-500",
+  {
+    variants: {
+      variant: {
+        default:
+          "bg-purple-700 hover:bg-purple-600 active:bg-purple-700 text-white",
+        secondary:
+          "text-purple-700 outline -outline-offset-2 outline-purple-600 hover:bg-purple-50",
+        text: "text-blue-600 underline-offset-4 cursor-pointer hover:underline",
+      },
+      size: {
+        default: "h-10 p-6 has-[>svg]:px-4",
+        sm: "h-9 px-4 py-2 has-[>svg]:px-3 text-sm",
+        lg: "h-12 rounded-md p-8 text-lg has-[>svg]:px-5",
+        icon: "size-9",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  },
+);
 
 export default function Button({
-  type,
-  style = "primary",
-  children,
-  href,
-  onClick,
-  size = "md",
-  fullWidth = false,
-  id,
-  disabled = false,
-}: ButtonProps) {
-  const baseStyles =
-    "rounded-lg px-8 py-4 text-center break-words flex justify-center font-bold max-w-[270px]";
-  const sizeStyles = size === "sm" ? "px-3 py-2 text-sm leading-tight" : "";
-  const widthStyles = fullWidth ? "w-full max-w-full" : "";
-
-  const styleVariants = {
-    primary:
-      "bg-purple-700 hover:bg-purple-600 active:bg-purple-700 text-white",
-    secondary:
-      "text-purple-600 outline outline-2 outline-offset-[-2px] outline-purple-600 hover:bg-purple-600 hover:text-white active:bg-purple-800",
-    text: "text-slate-300 hover:text-slate-200 active:text-slate-300",
-    disabled: "cursor-not-allowed bg-gray-500 text-white",
-  };
-
-  const buttonStyle = disabled ? "disabled" : style;
-
-  if (href && !disabled) {
-    return (
-      <Link href={href} id={id}>
-        <div
-          className={clsx(
-            baseStyles,
-            sizeStyles,
-            widthStyles,
-            styleVariants[buttonStyle],
-          )}
-        >
-          {children}
-        </div>
-      </Link>
-    );
-  }
+  className,
+  variant,
+  size,
+  asChild = false,
+  ...props
+}: React.ComponentProps<"button"> &
+  VariantProps<typeof buttonVariants> & {
+    asChild?: boolean;
+  }) {
+  const Comp = asChild ? Slot : "button";
 
   return (
-    <button
-      onClick={disabled ? undefined : onClick}
-      type={type}
-      className={clsx(
-        baseStyles,
-        sizeStyles,
-        widthStyles,
-        styleVariants[buttonStyle],
-      )}
-      id={id}
-      disabled={disabled}
-    >
-      {children}
-    </button>
+    <Comp
+      data-slot="button"
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props}
+    />
   );
 }
+
+export { Button, buttonVariants };

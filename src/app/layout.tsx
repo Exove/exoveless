@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
-import { Toaster } from "@/components/toaster/toaster";
+import { Toaster } from "@/components/Toaster/Toaster";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -58,7 +58,7 @@ export default function RootLayout({
             </a>
           </div>
         </header>
-        <div className="mx-auto max-w-screen-lg px-4 lg:px-0">
+        <div className="mx-auto max-w-(--breakpoint-lg) px-4 lg:px-0">
           <main className="container mx-auto py-10">{children}</main>
         </div>
         <Toaster />

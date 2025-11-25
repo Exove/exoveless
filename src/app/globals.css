@@ -1,33 +1,62 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@theme {
+  --font-sans: var(--font-montserrat);
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
   }
-  .inline-label {
-    @apply flex items-center gap-3 text-sm/6 font-normal;
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
   }
 }
-@layer base {
-  label,
-  legend {
-    @apply text-sm font-medium;
-  }
-  input,
-  select,
-  textarea {
-    @apply mt-2 block w-full rounded-lg border border-neutral-400 px-3 py-1.5 text-sm/6 font-normal accent-purple-600;
-  }
-  input[type="checkbox"],
-  input[type="radio"] {
-    @apply mt-0 size-4;
-  }
-  select {
-    @apply appearance-none pr-9;
-    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5' /></svg>")
-      right 10px center no-repeat;
-    background-size: 18px;
-  }
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility inline-label {
+  @apply flex items-center gap-3 text-sm/6 font-normal;
+}
+
+button:not(.main-nav-item):focus-visible,
+a:not(.search-panel-hit):focus-visible,
+input:not(.search-panel-input):focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  @apply ring-2 ring-blue-500 ring-offset-2 ring-offset-white transition-shadow duration-200 outline-none;
 }

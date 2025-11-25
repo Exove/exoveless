@@ -70,7 +70,7 @@ export function ScrollerSlide({
   slideWidth = SLIDE_WIDTH,
 }: ScrollerProps) {
   return (
-    <div style={{ width: `${slideWidth}px` }} className="flex-shrink-0">
+    <div style={{ width: `${slideWidth}px` }} className="shrink-0">
       {children}
     </div>
   );

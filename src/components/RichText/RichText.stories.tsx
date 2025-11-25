@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import RichText from "./RichText";
 
 const meta: Meta<typeof RichText> = {
@@ -44,14 +44,14 @@ export const BlogPost: Story = {
         <h1>Getting Started with React</h1>
         <p className="lead">
           React is a JavaScript library for building user interfaces. In this
-          guide, we'll explore the fundamentals of React development.
+          guide, we&apos;ll explore the fundamentals of React development.
         </p>
 
         <h2>What is React?</h2>
         <p>
           React is a declarative, efficient, and flexible JavaScript library for
           building user interfaces. It lets you compose complex UIs from small
-          and isolated pieces of code called "components".
+          and isolated pieces of code called &quot;components&quot;.
         </p>
 
         <h3>Key Features</h3>
@@ -72,7 +72,7 @@ export const BlogPost: Story = {
 
         <h3>Getting Started</h3>
         <p>
-          To get started with React, you'll need to have Node.js installed on
+          To get started with React, you&apos;ll need to have Node.js installed on
           your machine. Then you can create a new React application using:
         </p>
 

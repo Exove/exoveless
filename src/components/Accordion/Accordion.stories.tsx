@@ -9,7 +9,8 @@ const meta: Meta<typeof Accordion> = {
     layout: "padded",
     docs: {
       description: {
-        component: "Accessible accordion built on top of Radix primitives. To enable animations, see Tailwind configuration in global.css",
+        component:
+          "Accessible accordion built on top of Radix primitives. To enable animations, see Tailwind configuration in global.css",
       },
     },
   },
@@ -30,7 +31,8 @@ const items = [
   },
   {
     title: "How does Tailwind help?",
-    content: "Utility classes keep styling predictable and avoid context switching when iterating on layouts.",
+    content:
+      "Utility classes keep styling predictable and avoid context switching when iterating on layouts.",
   },
 ];
 

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Heading from "./heading";
+import Heading from "./Heading";
 
 const meta: Meta<typeof Heading> = {
   title: "Components/Heading",
@@ -51,7 +51,7 @@ export const Sizes: Story = {
 
 export const Levels: Story = {
   render: () => (
-    <div className="space-y-3">
+    <div className="space-y-4">
       <Heading level="h1" size="xl">
         First level
       </Heading>

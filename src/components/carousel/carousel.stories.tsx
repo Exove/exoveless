@@ -12,7 +12,7 @@ const meta: Meta<typeof Carousel> = {
   title: "Components/Carousel",
   component: Carousel,
   parameters: {
-    layout: "fullscreen",
+    layout: "padded",
     docs: {
       description: {
         component: "Embla based carousel with slot-aware controls and keyboard support.",

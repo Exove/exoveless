@@ -6,7 +6,7 @@ const meta: Meta<typeof Accordion> = {
   title: "Components/Accordion",
   component: Accordion,
   parameters: {
-    layout: "fullscreen",
+    layout: "padded",
     docs: {
       description: {
         component: "Accessible accordion built on top of Radix primitives. To enable animations, see Tailwind configuration in global.css",

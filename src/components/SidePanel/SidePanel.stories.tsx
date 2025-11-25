@@ -23,8 +23,11 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => (
     <SidePanel
-      openLabel={<button className="rounded-md bg-purple-700 px-4 py-2 text-white">Open filters</button>}
+      openLabel={
+        <button className="rounded-md bg-purple-700 px-4 py-2 text-white">Open filters</button>
+      }
       title="Filters"
+      position="left"
     >
       <div className="space-y-4 text-gray-900">
         <p>Place any content inside the panel.</p>
@@ -44,7 +47,10 @@ export const Controlled: Story = {
     const [open, setOpen] = useState(false);
     return (
       <>
-        <button className="rounded-md bg-purple-700 px-4 py-2 text-white" onClick={() => setOpen(true)}>
+        <button
+          className="rounded-md bg-purple-700 px-4 py-2 text-white"
+          onClick={() => setOpen(true)}
+        >
           Show panel
         </button>
         <SidePanel
@@ -60,4 +66,3 @@ export const Controlled: Story = {
     );
   },
 };
-

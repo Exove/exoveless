@@ -63,6 +63,7 @@ export default function SidePanel({
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog className="relative z-50" onClose={closePanel}>
+          {/* Overlay */}
           <TransitionChild
             as={Fragment}
             enter="ease-out duration-300"
@@ -72,7 +73,7 @@ export default function SidePanel({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
+            <div className="fixed inset-0 bg-black/25" />
           </TransitionChild>
 
           <div className="fixed inset-0 overflow-hidden">
@@ -113,7 +114,7 @@ export default function SidePanel({
 
                           <button onClick={closePanel}>
                             <span className="sr-only">{closeLabel}</span>
-                            <XMarkIcon className="h-10 w-10 rounded-full bg-gray-200 p-2 hover:bg-gray-300 text-gray-900" />
+                            <XMarkIcon className="h-10 w-10 rounded-full bg-gray-200 p-2 text-gray-900 hover:bg-gray-300" />
                           </button>
                         </div>
                         <div className="flex-1 overflow-y-auto overscroll-contain [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">

@@ -29,7 +29,7 @@ export const Default: Story = {
         <TabsTrigger value="config">Config</TabsTrigger>
       </TabsList>
       <TabsContent value="overview">
-        <div className="space-y-2 py-4">
+        <div className="space-y-2">
           <h3 className="text-lg font-semibold text-black">Snapshot</h3>
           <p className="text-sm text-gray-600">
             High-level view for the current release, including key KPIs and risk indicators.
@@ -37,16 +37,16 @@ export const Default: Story = {
         </div>
       </TabsContent>
       <TabsContent value="details">
-        <div className="space-y-2 py-4">
-          <h3 className="text-lg font-semibold text-white">Details</h3>
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold">Details</h3>
           <p className="text-sm text-gray-600">
             Dive deeper into the data set, compare metrics, and export structured reports.
           </p>
         </div>
       </TabsContent>
       <TabsContent value="config">
-        <div className="space-y-2 py-4">
-          <h3 className="text-lg font-semibold text-white">Configuration</h3>
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold">Configuration</h3>
           <p className="text-sm text-gray-600">Fine tune inputs, thresholds, and automation logic.</p>
         </div>
       </TabsContent>
@@ -69,15 +69,15 @@ export const WithIcons: Story = {
         </TabsTrigger>
       </TabsList>
       <TabsContent value="analytics">
-        <div className="py-4 text-sm text-gray-700">
+        <div className="text-sm text-gray-700">
           Visualise adoption, engagement, and retention with built-in charts.
         </div>
       </TabsContent>
       <TabsContent value="filters">
-        <div className="py-4 text-sm text-gray-700">Use saved filters to switch context quickly.</div>
+        <div className="text-sm text-gray-700">Use saved filters to switch context quickly.</div>
       </TabsContent>
       <TabsContent value="settings">
-        <div className="py-4 text-sm text-gray-700">Adjust pipeline owners, exports, and alerts.</div>
+        <div className="text-sm text-gray-700">Adjust pipeline owners, exports, and alerts.</div>
       </TabsContent>
     </Tabs>
   ),

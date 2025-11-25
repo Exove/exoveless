@@ -56,56 +56,12 @@ export const TwoColumns: Story = {
       <SampleCard key="4" color="bg-yellow-100">
         Item 4
       </SampleCard>,
+      <SampleCard key="3" color="bg-orange-100">
+        Item 3
+      </SampleCard>,
+      <SampleCard key="4" color="bg-red-100">
+        Item 4
+      </SampleCard>,
     ],
-  },
-};
-
-export const AllColumnSizes: Story = {
-  render: () => (
-    <div className="space-y-8">
-      <div>
-        <h3 className="mb-4 text-lg font-semibold">2 Columns</h3>
-        <Grid cols={2}>
-          <SampleCard color="bg-blue-100">Item 1</SampleCard>
-          <SampleCard color="bg-green-100">Item 2</SampleCard>
-          <SampleCard color="bg-purple-100">Item 3</SampleCard>
-          <SampleCard color="bg-yellow-100">Item 4</SampleCard>
-        </Grid>
-      </div>
-
-      <div>
-        <h3 className="mb-4 text-lg font-semibold">3 Columns</h3>
-        <Grid cols={3}>
-          <SampleCard color="bg-red-100">Item 1</SampleCard>
-          <SampleCard color="bg-blue-100">Item 2</SampleCard>
-          <SampleCard color="bg-green-100">Item 3</SampleCard>
-          <SampleCard color="bg-purple-100">Item 4</SampleCard>
-          <SampleCard color="bg-yellow-100">Item 5</SampleCard>
-          <SampleCard color="bg-pink-100">Item 6</SampleCard>
-        </Grid>
-      </div>
-
-      <div>
-        <h3 className="mb-4 text-lg font-semibold">4 Columns</h3>
-        <Grid cols={4}>
-          {Array.from({ length: 8 }, (_, i) => (
-            <SampleCard
-              key={i}
-              color={`bg-${["red", "blue", "green", "purple", "yellow", "pink", "indigo", "teal"][i]}-100`}
-            >
-              {i + 1}
-            </SampleCard>
-          ))}
-        </Grid>
-      </div>
-    </div>
-  ),
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Comparison of different column configurations to show responsive behavior.",
-      },
-    },
   },
 };

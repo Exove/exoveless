@@ -1,34 +1,36 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import { ArrowUpRightIcon, Cog6ToothIcon } from "@heroicons/react/24/solid";
 
-import Button from "./Button";
+import Heading from "@/components/Heading/Heading";
+import Button from "@/components/Button/Button";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
   component: Button,
   parameters: {
-    layout: "centered",
+    layout: "padded",
     docs: {
       description: {
-        component: "Composable button built on top of CVA variants. Supports link-style rendering via `asChild`.",
+        component:
+          "Accessible button component built with Radix Slot and class-variance-authority. Supports semantic variants, size presets, and `asChild` rendering for anchors or custom elements.",
       },
     },
   },
   tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: "select",
-      options: ["default", "secondary", "link"],
+      control: { type: "select" },
+      options: ["default", "secondary", "text"],
+      description: "Visual variant that maps to semantic intent.",
     },
     size: {
-      control: "select",
+      control: { type: "select" },
       options: ["default", "sm", "lg", "icon"],
+      description: "Predefined size tokens for consistent spacing.",
     },
     asChild: {
-      control: "boolean",
-    },
-    fullWidth: {
-      control: "boolean",
+      control: { type: "boolean" },
+      description: "Renders the underlying element as a Slot child.",
     },
   },
 };
@@ -38,42 +40,65 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: "Continue",
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    variant: "secondary",
-    children: "Secondary",
+    children: "Call to action",
+    variant: "default",
+    size: "default",
   },
 };
 
 export const WithIcon: Story = {
   args: {
     variant: "default",
-    children: (
-      <>
-        Seuraava
-        <ArrowRightIcon className="size-4" />
-      </>
-    ),
+    size: "default",
   },
-};
-
-export const FullWidth: Story = {
-  args: {
-    children: "Full width action",
-    fullWidth: true,
-  },
+  render: (args) => (
+    <Button {...args}>
+      Continue
+      <ArrowUpRightIcon className="size-4" />
+    </Button>
+  ),
   parameters: {
-    layout: "padded",
+    docs: {
+      description: {
+        story: "Combine text and icons. Icons inherit sizing through the shared utility classes.",
+      },
+    },
   },
 };
 
-export const LinkVariant: Story = {
-  args: {
-    variant: "link",
-    children: "Show details",
+export const Showcase: Story = {
+  render: () => (
+    <div className="space-y-6">
+      <section className="space-y-3">
+        <Heading level="h3" size="sm">
+          Variants
+        </Heading>
+        <div className="flex flex-wrap gap-4">
+          <Button>Default</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="text">Text</Button>
+        </div>
+      </section>
+      <section className="space-y-3">
+        <Heading level="h3" size="sm">
+          Sizes
+        </Heading>
+        <div className="flex flex-wrap items-center gap-4">
+          <Button size="sm">Small</Button>
+          <Button>Default</Button>
+          <Button size="lg">Large</Button>
+          <Button size="icon" aria-label="Settings">
+            <Cog6ToothIcon className="size-4" />
+          </Button>
+        </div>
+      </section>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Overview of semantic variants and size presets.",
+      },
+    },
   },
 };

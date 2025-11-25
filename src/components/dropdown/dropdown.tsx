@@ -41,7 +41,7 @@ export default function Dropdown({ label, items }: DropdownProps) {
               <MenuItem>
                 <Link
                   href={item.url}
-                  className="flex w-full items-center rounded-md py-2 pl-7 pr-2 ui-active:bg-neutral-200"
+                  className="flex w-full items-center rounded-md py-2 pl-7 pr-2 ui-active:bg-neutral-200 hover:bg-neutral-100"
                 >
                   {item.title}
                 </Link>

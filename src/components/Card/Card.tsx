@@ -1,6 +1,6 @@
 "use client";
 
-import Heading from "@/components/heading/Heading";
+import Heading from "@/components/Heading/Heading";
 import { cn } from "@/lib/utils";
 import { PhotoIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";

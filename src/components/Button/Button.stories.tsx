@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ArrowUpRightIcon, Cog6ToothIcon } from "@heroicons/react/24/solid";
 
-import Heading from "@/components/heading/Heading";
+import Heading from "@/components/Heading/Heading";
 import Button from "@/components/Button/Button";
 
 const meta: Meta<typeof Button> = {

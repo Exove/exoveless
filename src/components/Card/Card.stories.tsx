@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Card from "./card";
+import Card from "./Card";
 
 const meta: Meta<typeof Card> = {
   title: "Components/Card",
@@ -38,4 +38,3 @@ export const WithoutImage: Story = {
     href: "/articles/fallback",
   },
 };
-

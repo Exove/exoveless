@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Modal from "./modal";
+import Modal from "./Modal";
 import Button from "../Button/Button";
 
 const meta: Meta<typeof Modal> = {
@@ -55,115 +55,6 @@ export const Default: Story = {
   },
 };
 
-export const Small: Story = {
-  args: {
-    id: "small-modal",
-    title: "Small Modal",
-    size: "sm",
-    children: (
-      <div>
-        <p>This is a small modal with limited content space.</p>
-      </div>
-    ),
-    openButton: <Button>Open Small Modal</Button>,
-  },
-};
-
-export const Large: Story = {
-  args: {
-    id: "large-modal",
-    title: "Large Modal",
-    size: "lg",
-    children: (
-      <div className="space-y-4">
-        <p>This is a large modal that can accommodate more content.</p>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="rounded bg-gray-100 p-4">
-            <h4 className="font-semibold">Section 1</h4>
-            <p>Content for the first section.</p>
-          </div>
-          <div className="rounded bg-gray-100 p-4">
-            <h4 className="font-semibold">Section 2</h4>
-            <p>Content for the second section.</p>
-          </div>
-        </div>
-        <p>
-          Large modals are perfect for complex forms or detailed information
-          displays.
-        </p>
-      </div>
-    ),
-    openButton: <Button>Open Large Modal</Button>,
-  },
-};
-
-export const ExtraLarge: Story = {
-  args: {
-    id: "xl-modal",
-    title: "Extra Large Modal",
-    size: "xl",
-    children: (
-      <div className="space-y-6">
-        <p>This is an extra large modal for maximum content space.</p>
-        <div className="grid grid-cols-3 gap-4">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="rounded bg-gray-100 p-4">
-              <h4 className="font-semibold">Section {i}</h4>
-              <p>Content for section {i}.</p>
-            </div>
-          ))}
-        </div>
-        <div className="rounded bg-blue-50 p-4">
-          <h4 className="font-semibold text-blue-800">Important Information</h4>
-          <p className="text-blue-700">
-            Extra large modals are ideal for dashboards, detailed forms, or
-            comprehensive data displays.
-          </p>
-        </div>
-      </div>
-    ),
-    openButton: <Button>Open XL Modal</Button>,
-  },
-};
-
-export const WithCustomCloseButton: Story = {
-  args: {
-    id: "custom-close-modal",
-    title: "Custom Close Button",
-    closeButtonText: "Got it!",
-    children: (
-      <div>
-        <p>This modal has a custom close button text.</p>
-        <p className="mt-4">
-          You can customize the close button text to match your use case.
-        </p>
-      </div>
-    ),
-    openButton: <Button>Open Modal</Button>,
-  },
-};
-
-export const NoTitle: Story = {
-  args: {
-    id: "no-title-modal",
-    children: (
-      <div>
-        <h3 className="mb-4 text-lg font-semibold">
-          Custom Title Inside Content
-        </h3>
-        <p>
-          This modal doesn't use the title prop, instead the title is part of
-          the content.
-        </p>
-        <p className="mt-4">
-          This gives you more control over the title styling and layout.
-        </p>
-      </div>
-    ),
-    openButton: <Button>Open Modal Without Title</Button>,
-  },
-};
-
 export const AllSizes: Story = {
   render: () => (
     <div className="flex flex-wrap gap-4">
@@ -171,7 +62,7 @@ export const AllSizes: Story = {
         id="demo-sm"
         title="Small"
         size="sm"
-        openButton={<Button size="sm">Small</Button>}
+        openButton={<Button>Small</Button>}
       >
         <p>Small modal content</p>
       </Modal>

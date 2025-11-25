@@ -9,7 +9,7 @@ import {
 } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
 import Button from "../Button/Button";
-import { clsx } from "clsx";
+import { cn } from "@/lib/utils";
 
 interface ModalProps {
   children: React.ReactNode;
@@ -21,6 +21,7 @@ interface ModalProps {
   open?: boolean;
   saveStateToLocalStorage?: boolean; // Use only if open is set to true
   size?: "sm" | "md" | "lg" | "xl";
+  className?: string;
 }
 
 export default function Modal({
@@ -33,6 +34,7 @@ export default function Modal({
   saveStateToLocalStorage = false,
   size = "md",
   id,
+  className,
 }: ModalProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -66,7 +68,7 @@ export default function Modal({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
+            <div className="fixed inset-0 bg-black/25" />
           </TransitionChild>
 
           <div className="fixed inset-0 overflow-y-auto">
@@ -81,19 +83,20 @@ export default function Modal({
                 leaveTo="opacity-0 scale-95"
               >
                 <DialogPanel
-                  className={clsx(
+                  className={cn(
                     "relative w-full transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all",
                     {
                       "max-w-lg": size === "sm",
-                      "max-w-xl": size === "md" || !size,
-                      "max-w-3xl": size === "lg",
-                      "max-w-5xl": size === "xl",
+                      "max-w-2xl": size === "md" || !size,
+                      "max-w-5xl": size === "lg",
+                      "max-w-7xl": size === "xl",
                     },
+                    className,
                   )}
                 >
                   <DialogTitle
                     as="h3"
-                    className="text-lg font-medium leading-6"
+                    className="text-lg leading-6 font-medium"
                   >
                     {title}
                   </DialogTitle>
@@ -102,9 +105,7 @@ export default function Modal({
                   </div>
 
                   <div className="mt-4 flex justify-center">
-                    <Button onClick={onClose}>
-                      {closeButtonText}
-                    </Button>
+                    <Button onClick={onClose}>{closeButtonText}</Button>
                   </div>
                 </DialogPanel>
               </TransitionChild>

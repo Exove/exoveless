@@ -1,13 +1,13 @@
-A collection of UI components for React and Next.js.
+# Exoveless UI Kit
 
-## How to Use
+A set of React/Next.js UI components and primitives that are documented through Storybook 10.
 
-1. Choose the components you want to use. Examples pages: [exoveless.vercel.app](https://exoveless.vercel.app) or `npm run dev` [http://localhost:3000](http://localhost:3000)
+## Storybook
 
-2. Copy paste the components you want to use to your project.
+1. Install deps with `pnpm install`.
+2. Run Storybook locally via `pnpm dev` and browse `http://localhost:6006`.
+3. Explore stories for usage notes, accessibility guidance (addon-a11y), docs, and interactive controls.
 
-3. Install component level node module dependencies if needed.
+## Components inside
 
-4. See `/examples` folder or [Code blocks](https://exoveless.vercel.app) on how to implement the selected components to your page.
-
-5. Edit, style and extend the components to suite your needs.
+Components are located in the `src/components` folder. You can use them as you would any other React component. Just copy and paste the component you want to use to your project and check that you have the necessary dependencies installed.

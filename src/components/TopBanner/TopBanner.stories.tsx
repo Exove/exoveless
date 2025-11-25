@@ -21,7 +21,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: "New research report available now",
+    children: "New research report available now",
   },
 };
-

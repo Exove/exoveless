@@ -1,20 +1,17 @@
+import { cn } from "@/lib/utils";
+
 type TopBannerProps = {
-  label: string;
+  children: React.ReactNode;
   className?: string;
 };
 
-export default function TopBanner({ label, className }: TopBannerProps) {
-  if (!label) return null;
-
+export default function TopBanner({ children, className }: TopBannerProps) {
   return (
     <div
       role="status"
-      className={`w-full bg-purple-700 py-2 text-center text-sm font-semibold text-white shadow ${className ?? ""}`}
+      className={cn("w-full bg-purple-700 py-2 text-center text-sm font-semibold text-white shadow", className)}
     >
-      {label}
+      {children}
     </div>
   );
 }
-
-export { TopBanner };
-

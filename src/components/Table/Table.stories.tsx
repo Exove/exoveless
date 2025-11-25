@@ -1,6 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "./table";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "./Table";
 
 const meta: Meta<typeof Table> = {
   title: "Components/Table",
@@ -9,7 +17,7 @@ const meta: Meta<typeof Table> = {
     layout: "padded",
     docs: {
       description: {
-        component: "Composable table primitives with subtle borders that work on dark backgrounds.",
+        component: "Composable table primitives with subtle borders.",
       },
     },
   },
@@ -49,4 +57,3 @@ export const Default: Story = {
     </Table>
   ),
 };
-

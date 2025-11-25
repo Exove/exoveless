@@ -7,6 +7,7 @@ import {
   Transition,
   TransitionChild,
 } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Fragment, useEffect, useState } from "react";
 import Button from "../Button/Button";
 import { cn } from "@/lib/utils";
@@ -94,9 +95,17 @@ export default function Modal({
                     className,
                   )}
                 >
+                  <button
+                    type="button"
+                    onClick={onClose}
+                    className="absolute top-4 right-4 rounded-full p-1 text-gray-500 hover:bg-gray-100 hover:text-black"
+                    aria-label="Close modal"
+                  >
+                    <XMarkIcon className="h-5 w-5" />
+                  </button>
                   <DialogTitle
                     as="h3"
-                    className="text-lg leading-6 font-medium"
+                    className="mb-6 pr-10 text-lg leading-6 font-medium"
                   >
                     {title}
                   </DialogTitle>
@@ -104,7 +113,7 @@ export default function Modal({
                     {children}
                   </div>
 
-                  <div className="mt-4 flex justify-center">
+                  <div className="mt-8 flex justify-center">
                     <Button onClick={onClose}>{closeButtonText}</Button>
                   </div>
                 </DialogPanel>

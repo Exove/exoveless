@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
 import ImageModal from "./ImageModal";
+import Image from "next/image";
 
 const meta: Meta<typeof ImageModal> = {
   title: "Components/ImageModal",
@@ -25,8 +26,14 @@ export const Default: Story = {
     const [open, setOpen] = useState(false);
     return (
       <>
-        <button onClick={() => setOpen(true)} className="rounded-md bg-purple-700 px-4 py-2 text-white">
-          Show preview
+        <button onClick={() => setOpen(true)} className="block w-full cursor-zoom-in">
+          <Image 
+            src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80" 
+            alt="City skyline" 
+            width={1200} 
+            height={800} 
+            className="aspect-3/2 w-full rounded-lg object-cover"
+          />
         </button>
         <ImageModal
           isOpen={open}

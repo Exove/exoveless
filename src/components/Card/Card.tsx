@@ -1,6 +1,6 @@
 "use client";
 
-import Heading from "@/components/Heading/Heading";
+import Heading from "@/components/heading/Heading";
 import { cn } from "@/lib/utils";
 import { PhotoIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
@@ -27,7 +27,7 @@ export default function Card({ image, title, text, href, className }: CardProps)
   return (
     <article
       className={cn(
-        "group relative overflow-hidden rounded-lg bg-white border border-gray-200 transition-all duration-300 hover:ring-1 hover:ring-purple-700",
+        "group relative overflow-hidden rounded-lg border border-gray-200 bg-white transition-all duration-300 hover:ring-1 hover:ring-purple-700",
         className,
       )}
     >
@@ -50,17 +50,19 @@ export default function Card({ image, title, text, href, className }: CardProps)
         )}
       </div>
       <div className="space-y-2 p-6">
-        <Link href={href} className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-700">
+        <Link
+          href={href}
+          className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-700"
+        >
           <span className="absolute inset-0" aria-hidden="true" />
           <Heading level="h2" size="sm" className="mb-0 text-black">
             {title}
           </Heading>
         </Link>
-        {text && <p className="text-sm text-gray-700 line-clamp-2">{text}</p>}
+        {text && <p className="line-clamp-2 text-sm text-gray-700">{text}</p>}
       </div>
     </article>
   );
 }
 
 export { Card };
-

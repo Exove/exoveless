@@ -29,6 +29,7 @@ export default function ImageModal({
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={onClose}>
+        {/* Overlay */}
         <TransitionChild
           as={Fragment}
           enter="ease-out duration-300"
@@ -38,7 +39,7 @@ export default function ImageModal({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black bg-opacity-90" onClick={onClose} />
+          <div className="fixed inset-0 bg-black" onClick={onClose} />
         </TransitionChild>
 
         <div className="fixed inset-0">
@@ -54,14 +55,17 @@ export default function ImageModal({
             <DialogPanel className="relative flex h-full w-full items-center justify-center">
               <button
                 type="button"
-                className="absolute right-4 top-4 z-10 rounded-full bg-black/60 p-2 text-white transition hover:bg-black/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="absolute top-4 right-4 z-10 rounded-full bg-black/60 p-2 text-white transition hover:bg-black/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 onClick={onClose}
                 aria-label={closeLabel}
               >
                 <XMarkIcon className="h-6 w-6" />
               </button>
 
-              <figure className="relative flex h-full w-full items-center justify-center p-4" onClick={(e) => e.stopPropagation()}>
+              <figure
+                className="relative flex h-full w-full items-center justify-center p-4"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <Image
                   src={src}
                   alt={alt}
@@ -72,7 +76,7 @@ export default function ImageModal({
                   priority
                 />
                 {caption && (
-                  <figcaption className="absolute bottom-0 left-0 right-0 bg-black/70 p-4 text-center text-sm text-white">
+                  <figcaption className="absolute right-0 bottom-0 left-0 bg-black/70 p-4 text-center text-sm text-white">
                     {caption}
                   </figcaption>
                 )}
@@ -86,4 +90,3 @@ export default function ImageModal({
 }
 
 export { ImageModal };
-

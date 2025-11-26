@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 import { Checkbox } from "./Checkbox";
 import { Label } from "../Label/Label";
+import { Legend } from "../Legend/Legend";
+import { Fieldset } from "../Fieldset/Fieldset";
 
 const meta: Meta<typeof Checkbox> = {
   title: "Forms/Checkbox",
@@ -10,8 +12,7 @@ const meta: Meta<typeof Checkbox> = {
     layout: "padded",
     docs: {
       description: {
-        component:
-          "Accessible checkbox input component with consistent styling and focus states.",
+        component: "Accessible checkbox input component with consistent styling and focus states.",
       },
     },
   },
@@ -39,7 +40,7 @@ export const Default: Story = {
 
 export const WithLabel: Story = {
   render: (args) => (
-    <div className="flex items-center space-x-2">
+    <div className="flex items-center gap-2">
       <Checkbox id="checkbox-label" {...args} />
       <Label htmlFor="checkbox-label" className="mb-0">
         Accept terms and conditions
@@ -58,25 +59,25 @@ export const WithLabel: Story = {
 export const States: Story = {
   render: () => (
     <div className="space-y-4">
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center gap-2">
         <Checkbox id="checkbox-unchecked" />
         <Label htmlFor="checkbox-unchecked" className="mb-0">
           Unchecked
         </Label>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center gap-2">
         <Checkbox id="checkbox-checked" defaultChecked />
         <Label htmlFor="checkbox-checked" className="mb-0">
           Checked
         </Label>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center gap-2">
         <Checkbox id="checkbox-disabled" disabled />
         <Label htmlFor="checkbox-disabled" className="mb-0">
           Disabled
         </Label>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center gap-2">
         <Checkbox id="checkbox-disabled-checked" defaultChecked disabled />
         <Label htmlFor="checkbox-disabled-checked" className="mb-0">
           Disabled (checked)
@@ -95,27 +96,27 @@ export const States: Story = {
 
 export const Group: Story = {
   render: () => (
-    <fieldset className="space-y-3">
-      <legend className="mb-2 text-sm font-medium">Select your interests</legend>
-      <div className="flex items-center space-x-2">
+    <Fieldset>
+      <Legend>Select your interests</Legend>
+      <div className="flex items-center gap-2">
         <Checkbox id="interest-1" name="interests" value="technology" />
         <Label htmlFor="interest-1" className="mb-0">
           Technology
         </Label>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center gap-2">
         <Checkbox id="interest-2" name="interests" value="design" defaultChecked />
         <Label htmlFor="interest-2" className="mb-0">
           Design
         </Label>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center gap-2">
         <Checkbox id="interest-3" name="interests" value="business" />
         <Label htmlFor="interest-3" className="mb-0">
           Business
         </Label>
       </div>
-    </fieldset>
+    </Fieldset>
   ),
   parameters: {
     docs: {
@@ -125,4 +126,3 @@ export const Group: Story = {
     },
   },
 };
-

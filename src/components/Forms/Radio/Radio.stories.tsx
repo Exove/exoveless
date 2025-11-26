@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 import { Radio } from "./Radio";
 import { Label } from "../Label/Label";
+import { Legend } from "../Legend/Legend";
+import { Fieldset } from "../Fieldset/Fieldset";
 
 const meta: Meta<typeof Radio> = {
   title: "Forms/Radio",
@@ -57,27 +59,27 @@ export const WithLabel: Story = {
 
 export const Group: Story = {
   render: () => (
-    <fieldset className="space-y-3">
-      <legend className="mb-2 text-sm font-medium">Choose an option</legend>
-      <div className="flex items-center space-x-2">
+    <Fieldset>
+      <Legend>Choose an option</Legend>
+      <div className="flex items-center gap-2">
         <Radio id="radio-1" name="options" value="option1" defaultChecked />
         <Label htmlFor="radio-1" className="mb-0">
           Option 1
         </Label>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center gap-2">
         <Radio id="radio-2" name="options" value="option2" />
         <Label htmlFor="radio-2" className="mb-0">
           Option 2
         </Label>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center gap-2">
         <Radio id="radio-3" name="options" value="option3" />
         <Label htmlFor="radio-3" className="mb-0">
           Option 3
         </Label>
       </div>
-    </fieldset>
+    </Fieldset>
   ),
   parameters: {
     docs: {

@@ -21,11 +21,6 @@ type Story = StoryObj<typeof meta>;
 
 export const ProductDetail: Story = {
   args: {
-    items: [
-      { label: "Products", href: "/products" },
-      { label: "Laptops", href: "/products/laptops" },
-      { label: "Pro 16", href: "/products/laptops/pro-16" },
-    ],
+    items: [],
   },
 };
-

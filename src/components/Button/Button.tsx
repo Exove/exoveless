@@ -7,8 +7,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          "bg-purple-700 hover:bg-purple-600 active:bg-purple-700 text-white",
+        default: "bg-purple-700 hover:bg-purple-600 active:bg-purple-700 text-white",
         secondary:
           "text-purple-700 outline -outline-offset-2 outline-purple-600 hover:bg-purple-50",
         text: "text-blue-600 underline-offset-4 cursor-pointer hover:underline",

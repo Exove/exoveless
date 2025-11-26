@@ -78,7 +78,7 @@ export default function Modal({
               >
                 <DialogPanel
                   className={cn(
-                    "relative w-full transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all",
+                    "relative w-full transform overflow-hidden rounded-lg bg-white p-6 text-left align-middle shadow-xl transition-all",
                     {
                       "max-w-lg": size === "sm",
                       "max-w-2xl": size === "md" || !size,

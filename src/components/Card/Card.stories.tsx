@@ -14,6 +14,13 @@ const meta: Meta<typeof Card> = {
     },
   },
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <div className="mx-auto max-w-96">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;

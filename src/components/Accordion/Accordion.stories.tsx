@@ -15,6 +15,13 @@ const meta: Meta<typeof Accordion> = {
     },
   },
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <div className="mx-auto max-w-xl">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;
@@ -27,7 +34,8 @@ const items = [
   },
   {
     title: "Why use Next.js?",
-    content: "Next.js ships routing, rendering strategies, and performance optimisations out of the box.",
+    content:
+      "Next.js ships routing, rendering strategies, and performance optimisations out of the box.",
   },
   {
     title: "How does Tailwind help?",

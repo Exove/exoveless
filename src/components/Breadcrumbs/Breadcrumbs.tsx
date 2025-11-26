@@ -9,17 +9,24 @@ type BreadcrumbItem = { label: string; href: string };
 type BreadcrumbsProps = {
   items?: BreadcrumbItem[];
   homeLabel?: string;
+  hideCurrentPage?: boolean;
 };
 
-export default function Breadcrumbs({ items = [], homeLabel = "Home" }: BreadcrumbsProps) {
+export default function Breadcrumbs({
+  items = [],
+  homeLabel = "Home",
+  hideCurrentPage = false,
+}: BreadcrumbsProps) {
   // Ensure the home link is the first segment rendered.
   const crumbs = [{ label: homeLabel, href: "/" }, ...items];
+  // If the current page is hidden, remove the last item from the crumbs.
+  const crumbsToRender = hideCurrentPage && crumbs.length > 1 ? crumbs.slice(0, -1) : crumbs;
 
   return (
     <nav aria-label="Breadcrumb" className="w-full">
       <ol className="scrollbar-none flex flex-col gap-1 text-sm text-gray-600 sm:flex-row sm:items-center sm:gap-2 sm:overflow-x-auto">
-        {crumbs.map((item, index) => {
-          const isLast = index === crumbs.length - 1;
+        {crumbsToRender.map((item, index) => {
+          const isLast = index === crumbsToRender.length - 1;
           const isHome = index === 0;
           return (
             <li
@@ -31,7 +38,7 @@ export default function Breadcrumbs({ items = [], homeLabel = "Home" }: Breadcru
                   <ChevronRightIcon className="h-4 w-4 text-gray-400" />
                 </span>
               )}
-              {isLast && !isHome ? (
+              {isLast && !isHome && !hideCurrentPage ? (
                 <span className="font-medium text-black" aria-current="page">
                   {item.label}
                 </span>

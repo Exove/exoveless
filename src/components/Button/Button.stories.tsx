@@ -20,12 +20,12 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: { type: "select" },
-      options: ["default", "secondary", "text"],
+      options: ["default", "secondary"],
       description: "Visual variant that maps to semantic intent.",
     },
     size: {
       control: { type: "select" },
-      options: ["default", "sm", "lg", "icon"],
+      options: ["default", "sm", "icon"],
       description: "Predefined size tokens for consistent spacing.",
     },
     asChild: {
@@ -74,7 +74,6 @@ export const Showcase: Story = {
         <div className="flex flex-wrap gap-4">
           <Button>Default</Button>
           <Button variant="secondary">Secondary</Button>
-          <Button variant="text">Text</Button>
         </div>
       </section>
       <section className="space-y-3">
@@ -84,7 +83,6 @@ export const Showcase: Story = {
         <div className="flex flex-wrap items-center gap-4">
           <Button size="sm">Small</Button>
           <Button>Default</Button>
-          <Button size="lg">Large</Button>
           <Button size="icon" aria-label="Settings">
             <Cog6ToothIcon className="size-4" />
           </Button>

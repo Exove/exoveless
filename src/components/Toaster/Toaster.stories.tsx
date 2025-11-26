@@ -12,7 +12,7 @@ const meta: Meta<typeof Toaster> = {
     docs: {
       description: {
         component:
-          "Dark theme Sonner preset that keeps success/error colours consistent with the rest of the UI.",
+          "Uses Sonner to display toast notifications. Configured with custom styles for each toast type.",
       },
     },
   },

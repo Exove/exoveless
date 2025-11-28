@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 
 export type HeadingProps = {
@@ -11,10 +9,6 @@ export type HeadingProps = {
 
 export default function Heading({ level, size = "md", children, className }: HeadingProps) {
   const Tag = level;
-
-  if (!children) {
-    return null;
-  }
 
   const id = children
     .toLowerCase()

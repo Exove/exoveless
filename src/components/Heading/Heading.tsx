@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useId } from "react";
 
 export type HeadingProps = {
   level: "h1" | "h2" | "h3" | "h4";
@@ -12,20 +11,16 @@ export type HeadingProps = {
 
 export default function Heading({ level, size = "md", children, className }: HeadingProps) {
   const Tag = level;
-  const idBase = useId();
 
   if (!children) {
     return null;
   }
 
-  const id =
-    children
-      .toLowerCase()
-      .replace(/\u00e4/g, "a")
-      .replace(/\u00f6/g, "o")
-      .replace(/\W/g, "-") +
-    "-" +
-    idBase;
+  const id = children
+    .toLowerCase()
+    .replace(/\u00e4/g, "a")
+    .replace(/\u00f6/g, "o")
+    .replace(/\W/g, "-");
 
   return (
     <Tag

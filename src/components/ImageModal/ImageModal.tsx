@@ -55,7 +55,7 @@ export default function ImageModal({
             <DialogPanel className="relative flex h-full w-full items-center justify-center">
               <button
                 type="button"
-                className="absolute top-4 right-4 z-10 rounded-full bg-black/60 p-2 text-white transition hover:bg-black/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="absolute top-8 right-8 z-10 rounded-full bg-black/60 p-2 text-white transition hover:bg-black/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 onClick={onClose}
                 aria-label={closeLabel}
               >

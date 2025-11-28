@@ -5,7 +5,7 @@ import { useId } from "react";
 
 export type HeadingProps = {
   level: "h1" | "h2" | "h3" | "h4";
-  size?: "xl" | "lg" | "md" | "sm" | "xs";
+  size?: "lg" | "md" | "sm";
   children: string;
   className?: string;
 };
@@ -23,16 +23,16 @@ export default function Heading({ level, size = "md", children, className }: Hea
       .toLowerCase()
       .replace(/\u00e4/g, "a")
       .replace(/\u00f6/g, "o")
-      .replace(/\W/g, "-") + "-" + idBase;
+      .replace(/\W/g, "-") +
+    "-" +
+    idBase;
 
   return (
     <Tag
       className={cn(
-        size === "xl" && "mb-10 text-3xl font-bold lg:text-4xl xl:text-5xl",
-        size === "lg" && "mb-8 text-2xl font-bold lg:text-3xl xl:text-4xl",
-        size === "md" && "mb-6 text-xl font-semibold xl:text-2xl",
-        size === "sm" && "mb-4 text-xl font-semibold",
-        size === "xs" && "mb-4 text-base font-medium",
+        size === "lg" && "mb-6 text-3xl font-extrabold sm:text-4xl lg:text-5xl",
+        size === "md" && "mb-4 text-2xl font-semibold lg:text-3xl",
+        size === "sm" && "mb-3 text-lg font-semibold",
         className,
       )}
       id={id}

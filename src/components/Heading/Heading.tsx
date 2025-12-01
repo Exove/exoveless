@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 export type HeadingProps = {
-  level: "h1" | "h2" | "h3" | "h4";
+  level: "h1" | "h2" | "h3";
   size?: "lg" | "md" | "sm";
   children: string;
   className?: string;
@@ -19,9 +19,9 @@ export default function Heading({ level, size = "md", children, className }: Hea
   return (
     <Tag
       className={cn(
-        size === "lg" && "mb-6 text-3xl font-extrabold sm:text-4xl lg:text-5xl",
-        size === "md" && "mb-4 text-2xl font-semibold lg:text-3xl",
-        size === "sm" && "mb-3 text-lg font-semibold",
+        size === "lg" && "mb-10 text-3xl font-extrabold sm:text-4xl lg:text-5xl",
+        size === "md" && "mb-8 text-2xl font-semibold lg:text-3xl",
+        size === "sm" && "mb-6 text-lg font-semibold",
         className,
       )}
       id={id}

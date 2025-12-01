@@ -11,8 +11,7 @@ const meta: Meta<typeof Toaster> = {
     layout: "centered",
     docs: {
       description: {
-        component:
-          "Uses Sonner to display toast notifications. Configured with custom styles for each toast type.",
+        component: "Uses Sonner to display toast notifications. Configured with custom styles for each toast type.",
       },
     },
   },
@@ -40,27 +39,18 @@ export const Variants: Story = {
   render: () => (
     <div className="space-x-3">
       <Toaster />
-      <button
-        onClick={() => toast.success("Data saved")}
-        className="rounded-md bg-emerald-600 px-4 py-2 text-white"
-      >
+      <button onClick={() => toast.success("Data saved")} className="rounded-md bg-emerald-700 px-4 py-2 text-white">
         Success
       </button>
-      <button
-        onClick={() => toast.error("Action failed")}
-        className="rounded-md bg-red-600 px-4 py-2 text-white"
-      >
+      <button onClick={() => toast.error("Action failed")} className="rounded-md bg-red-700 px-4 py-2 text-white">
         Error
       </button>
-      <button
-        onClick={() => toast.warning("Heads up")}
-        className="rounded-md bg-purple-700 px-4 py-2 text-white"
-      >
+      <button onClick={() => toast.warning("Heads up")} className="rounded-md bg-purple-700 px-4 py-2 text-white">
         Warning
       </button>
       <button
         onClick={() => toast.info("Informational message")}
-        className="rounded-md bg-blue-600 px-4 py-2 text-white"
+        className="rounded-md bg-blue-700 px-4 py-2 text-white"
       >
         Info
       </button>
